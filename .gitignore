@@ -1,0 +1,5 @@
+# Ignore all files except .pdf, .tex, and README.md
+*
+!*.pdf
+!*.tex
+!README.md
