@@ -1,0 +1,191 @@
+
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+
+\usepackage{microtype}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+
+\usepackage{matlab-prettifier}
+% % voor code syntax highlighting
+% \usepackage{minted}
+
+% beter font
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\graphicspath{{imagessoft/}}
+\begin{document}
+\begin{titlepage}
+    \author{Xander Vandooren}
+    \title{Smart buildings}
+\end{titlepage}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{vak inhoud:}
+\begin{itemize}
+    \item[] 
+\end{itemize}
+\subsection{Stappenplan:}
+\begin{enumerate}
+    \item Meterplan
+    \item Sensoren \& platformen
+    \item Data protocollen en werkwijze
+    \item Centrale database voor visualisatie, EMS, \dots (cloud of lokaal)
+    \item Tools (Grafana,Energis,Trikthom,\dots)
+\end{enumerate}
+\section{Digitale meters (slimme meters)}
+\begin{itemize}
+    \item Registreert gas of electriciteitsverbruik
+    \item Ingebouwde communicatietechnologie\begin{itemize}
+        \item Userports S1 en P1
+        \item verbonden met 4g via communicatiemodule => netbeheerder
+        \item Optionele gasmeter is draadloos verbonden met de elekriciteitsmeter
+    \end{itemize}
+    \item\textbf{Voordelen}\begin{itemize}
+        \item meter aflezen niet meer nodig
+        \item meer inzicht in verbruik
+    \end{itemize}
+    \item\textbf{Slim maken}\begin{itemize}
+        \item koppelen aan bepaalde apps
+        \item Apparaten laten werken op de voordelige tijdstippen
+        \item Eigen opgewekte energie verbruiken
+        \item aansturen van batterij
+        \item \dots
+    \end{itemize}
+\end{itemize}
+\subsection{gebruikerspoort}
+\begin{itemize}
+    \item gebruikerspoort P1 => verbruiksgegevens\begin{itemize}
+        \item %vul hier wat in
+    \end{itemize}
+    \item De S1 poort geeft ruwe data terug (Wij gebruiken deze poort niet)
+\end{itemize}
+\subsection{Besturen van digitale meter}
+%vul hier verder aan
+\subsection{P1 poort slimme meter hardware}
+\begin{itemize}
+    \item P1 poort is een seriele poort waarin je via een RJ stekker verbinding kan maken
+    \item Werkt op UARTl/TTL niveau => niet staandaard
+\end{itemize}
+In labo werken met DSMR 4.0/4.2 instellingen
+\subsection{message}
+\begin{itemize}
+    \item Er wordt om de seconde een telegram verstuurd
+    \item Het telegram bestaat uit een stream van bytes
+    \item Met telkes carriage return
+    \item Elk telegram bestaat uit een aantal lijnen
+\end{itemize}
+\subsection{P1 poort en windows}
+\begin{itemize}
+    \item De p1 kabel met RJ stekker en USB fiche zorgt ervoor 
+\end{itemize}
+\subsection{Smart metering:}
+\subsubsection{Digital meter:}
+\underline{Waarom?}
+\begin{itemize}
+    \item Technologische evolutie
+    \item Ondersteunen van de energietransitie\begin{itemize}
+        \item Digitale meter fungeert als \textbf{'enabler'}
+    \end{itemize}
+    \item Verfijning van het dienstaanbod ondersteunen.\begin{itemize}
+        \item Invoering nieuwe tariefstructuren
+    \end{itemize}
+\end{itemize}
+\underline{Wat?}
+\begin{itemize}
+    \item Digitale meter != slimme meter!
+    \item 4 uitleesbare meterstanden\begin{itemize}
+        \item Vanaf januari 2020: 1 waarde per dag 
+        \item Vanaf kwartaal 3 2020: kwartierdata
+    \end{itemize}
+    \item 2 gebruikerspoorten met specifiek doel:\begin{itemize}
+        \item P1 poort: Gebruikerspoort voor verbruikersinformatie
+        \item S1 poort: Gebruikerspoort voor geavanceerde detectie en regelingen\begin{itemize}
+            \item Toestelherkenning mogelijk
+            \item Poorten zijn standaard gedeactiveerd
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+Bij nieuwste digitale meters zit de S1 poort er \textbf{niet meer op}.
+\subsubsection{Smappee:}
+Smappee P1/S1 applicatie:
+\begin{itemize}
+    \item P1 lezer vanuit een fabrikant
+    \item Geen eigen code meer nodig (vb. USB\& inlezen via PC of raspberry PI)
+    \item Data direct gecapteerd op platform van fabrikant\begin{itemize}
+        \item dashboard.smappee.net
+    \end{itemize}
+\end{itemize}
+Smappee Infinity:
+\begin{itemize}
+    \item Totaaloplossing voor hoofd- en submonitoring van gebouwen
+    \item Focus op energiemonitoring
+    \item Sturing via eigen systeem/app
+\end{itemize}
+\section{Batterijopslag Victron:}
+\subsubsection{Flex piramide:}
+Flexibel energiesysteem wordt heel belangrijk:\begin{itemize}
+    \item Om bevoorradingszekerheid en het netevenwicht op elk moment te garanderen, is hogere flexibiliteit nodig
+    \item Zowel voor korte periodes (uren,dagen) als lange periodes (weken, maanden)
+    \item Flexpiramide vat de belangrijke vormen van flexibiliteit samen.
+    \item[]\begin{enumerate}
+        \item Technische flexibiliteit: expliciete flexibiliteit, opgelegd door netbeheerder 
+        \item Commerciele flexibiliteit: expliciete flexibiliteit, ingekocht op de markten 
+        \item Tarieven: Impliciete flexibiliteit
+        \item Infrastructuur: Dynamisch beheer van netten 
+    \end{enumerate}
+\end{itemize}
+\subsubsection{Smappee API:}
+\subsection{Batterijopslag}
+\subsubsection{Introductie:}
+\paragraph{Oplossing of uitdagingen?}
+\begin{itemize}
+    \item Wind \& groeien sneller dan alle andere energiebronnen ooit deden in het verleden.
+    \item Zon groeit de laatste jaren veel sneller dan wind!
+\end{itemize}
+\paragraph{Hernieuwbare energie groeit snel:}
+In 2024 was er in Europa (en Belgie) meer opwekking door zon + wind dan fossiel!
+\paragraph{opportuniteit voor batterijen:}
+\begin{itemize}
+    \item 2008 economische crisis:\begin{itemize}
+        \item Meer variaties, maar gemmidelde prijzen blijven gelijklopend
+        \item Steeds meer negatieve prijzen door hernieuwbare energie
+        \item Positieve uitschieters waren vroeger ook al aanwezig 
+    \end{itemize}
+\end{itemize}
+\paragraph{Configuratie batterijopslag:}
+\underline{Praktisch ontwerp:}
+\begin{itemize}
+    \item Verschillende configuraties mogelijk:\begin{itemize}
+        \item AC-model:\begin{itemize}
+            \item De zonnevormer kan voor of na de omvormer/laadregelaar worden geplaatst, afhankelijk van de dimensioneringscriteria.
+            \item Wanneer de zonne-energie na de omvormer/laadregelaar wordt aangesloten, kan het zonnesysteem in eilandbedrijf werken.
+            \item Efficientie:\begin{itemize}
+                \item Direct gebruikt:97\%
+                \item Opgeslagen:71\%
+            \end{itemize}
+        \end{itemize}
+        \item DC-model:\begin{itemize}
+            \item Zonne-invertor wordt vervangen door MPP tracker, gekoppeld in het DC-bus van de batterijen.
+            \item MPP heeft een hoger rendement dan een omvormer voor zonne-energie
+            \item Hoger rendement wanneer er een enorme hoeveelheid energie direct in de batterijen is opgeslagen (afhankelijk van levensstijl).
+            \item Efficientie:\begin{itemize}
+                \item Direct gebruik: 97\%
+                \item Opgeslagen: 71\%
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{document}

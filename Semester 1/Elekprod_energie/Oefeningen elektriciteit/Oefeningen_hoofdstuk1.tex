@@ -1,0 +1,225 @@
+
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+
+\usepackage{microtype}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+
+\usepackage{matlab-prettifier}
+% % voor code syntax highlighting
+% \usepackage{minted}
+
+% beter font
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\renewcommand{\familydefault}{\sfdefault}
+\graphicspath{{Imageselek/}}
+\begin{document}
+%\begin{titlepage}
+%    \author{Xander Vandooren}
+%    \title{Elektriciteitsproductie en distributie}
+%\end{titlepage}
+%\pagenumbering{gobble}
+%\maketitle
+%\newpage
+%\tableofcontents
+%\newpage
+\pagenumbering{arabic}
+\section{Oefeningen pagina 37,38,39}
+\subsection{vraag 1:}
+Men sluit een elektrisch geleidende draad met een weerstand van 150$\Omega$ op een spanning van 4,5V. Bereken de stroom door de geleider.\begin{itemize}
+    \item[] Gegeven:\begin{itemize}
+    \item weerstand R=150 $\Omega$
+    \item Spanning U=4,5V
+\end{itemize}
+\end{itemize}
+We weten dat $R=U/I$ dus we kunnen dit omvormen naar $I=U/R$
+4,5V/150$\Omega$=0,03A=30mA
+\subsection{vraag 2:}
+Teken het schema van een schakeling met een batterij, een lampje, en een stroommeter. Geef in
+je tekening de conventionele stroomrichting weer. De ampere meter geeft 0,5A aan en de
+batterij levert een spanning van 9 V. Wat is de weerstand van het lampje?
+\begin{itemize}
+    \item[] Gegeven:\begin{itemize}
+        \item I=0.5A 
+        \item Ubron=9V
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item R=U/I=9/0.5=18$\Omega$
+\end{itemize}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{Circuit.png}
+%\caption{Schema schakeling batterij,lamp en stroommeter}
+\end{figure}
+\subsection{vraag 3:}
+Twee weerstanden zijn in serie aangesloten op een spanningsbron van 9V. De spanning over weerstand 1 is 4V en de weerstand zelf heeft een waarde van 100$\Omega$
+\begin{itemize}
+    \item[] Gegeven\begin{itemize}
+    \item R1=100$\Omega$
+    \item V1=4V
+    \item Vbron=9V
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item Spanning V2:We weten dat de weerstanden in serie zijn dus Vbron=V1+V2 $\rightarrow$ 9V=4V+V2 $\rightarrow$ V2=5V.
+    \item Stroom: omdat weerstanden in serie zijn is stroom door weerstanden hetzelfde. I=V1/R1 $\rightarrow$ I=4V/100$\Omega$=0,04A
+    \item Weerstand R2: R2=U2/I2 $\rightarrow$ R2=5V/0.04A=125$\Omega$
+\end{itemize}
+\subsection{Vraag 4:}
+Bepaal de vervangweerstand:\begin{itemize}
+    \item[]a:
+    \item[]\begin{enumerate}
+        \item 20$\Omega$+10$\Omega$=30$\Omega$
+        \item (1/30)+(1/30)=15$\Omega$
+        \item 15$\Omega$+25$\Omega$=35$\Omega$
+    \end{enumerate}
+    \item[]b:
+    \item[]\begin{enumerate}
+        \item 5$\Omega$+30$\Omega$=35$\Omega$
+        \item 10$\Omega$+14$\Omega$=24$\Omega$
+        \item (1/12)+(1/24)=8$\Omega$
+        \item (1/20)+(1/60)+(1/10)=6$\Omega$
+        \item 8$\Omega$+6$\Omega$=14$\Omega$
+        \item (1/35)+(1/14)=10$\Omega$
+    \end{enumerate}
+\end{itemize}
+\subsection{Vraag 5:}
+\begin{itemize}
+    \item[] Gegeven:\begin{itemize}
+        \item Vbron=24V
+        \item R1=R2=3$\Omega$
+        \item R3=5$\Omega$
+        \item R4=1$\Omega$
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item De spanning over R1 en R2 is 24V en omdat het parallel staat met R3 en R4 staat er daar ook 24V over.
+    \item omdat R1 en R2 even groot zijn zal de spanning gelijk verdeelt zijn dus staat er 12V over de 2 weerstanden.
+    \item R3 en R4 zijn niet even groot dus zullen de spanningen over de weerstand verschillen. 24V/6=4V. er zal 4V over R4 staan en 20V over R3 staan.
+    \item Als we meten tussen punt a en b zullen we 8V meten. Er is een verschil van 8V tussen de weerstanden in parallel.
+\end{itemize}
+\subsection{Vraag 6:}
+Hoeveel leds (0.7V,20mA) mag ik maximaal in serie schakelen met een voeding van 12V DC? Welke voorschakelweerstand heb ik in dit geval nodig?
+\begin{itemize}
+    \item aantal leds: 12/0.7=17.14 dus 17 leds kan je in serie plaatsen.
+    \item voorschakelweerstand: (Ubron-Uled)/I $\rightarrow$ (12-11.9)/0.02=5$\Omega$
+\end{itemize}
+\section{Oefeningen pagina 46,47:}
+\subsection{Vraag 1:}
+Tijdens het starten van een auto levert de accu van 12V een stroom van 50A. Bereken het door de accu geleverde vermogen.
+\begin{itemize}
+    \item[] Gegeven:\begin{itemize}
+        \item Ubron=12V
+        \item I=50A
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item P=U*I $\rightarrow$ 12*50=600W 
+\end{itemize}
+\subsection{Vraag 2:}
+Een automobilist heeft zijn lampen aangelaten. Hun gezamenlijk vermogen is 50W. Het blijkt dat na 3 uur de lampen duidelijk zwakker gaan branden. Bereken de dan door de accu aan de lampen geleverde energie.
+\begin{itemize}
+    \item[] Gegeven:\begin{itemize}
+        \item P=50W
+        \item t=3uur
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item E=U.I.t $\Rightarrow$ E=P*t
+    \item 50*3=150Wh $\rightarrow$ 0.15 kWh $\rightarrow$ *3600=540000J of 540kJ
+\end{itemize}
+\subsection{vraag 3:}
+na 138.6 minunten heeft een machine in totaal 0,07kWh aan energie verbruikt. Wat is het vermogen in W?
+\begin{itemize}
+    \item[] Gegeven:\begin{itemize}
+        \item t=138.6 minuten
+        \item E=0.07 kWh
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item t=138,6*60=8316 seconden
+    \item 0.07*3600=252000J
+    \item P=E/t $\rightarrow$ 252000J/8136s=30,3W
+\end{itemize}
+\subsection{Vraag 4:}
+Een machine heeft 18,31h aangestaan. Het vermogen is 270W. Wat was het energieverbruik in kWh?
+\begin{itemize}
+    \item[] Gegeven:\begin{itemize}
+        \item t=18,31h
+        \item P=270W
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item E=P*t
+    \item E=270*18.31=4943,7Wh $\rightarrow$ 4,9437kWh
+\end{itemize}
+\subsection{Vraag 5:}
+Een lamp heeft een vermogen van 40 watt en staat 5 minuten aan. Bereken de hoeveelheid energie die de lamp heeft omgezet (in Joule)
+\begin{itemize}
+    \item[] Gegeven:\begin{itemize}
+        \item t=5 minuten
+        \item P=40W
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item t=5*60=300 seconden
+    \item E=P*t $\rightarrow$ 40*300=12000j=12kJ
+\end{itemize}
+\subsection{Vraag 6:}
+Een koelkast heeft een vermogen van 300 watt en staat ieder uur een kwartier aan. Een lamp heeft een vermogen van 100 watt en staat altijd aan. Bereken welk apparaat per dag de meeste energie verbruikt.
+\begin{itemize}
+    \item[] Gegeven:\begin{itemize}
+        \item Pkoelkast=300W
+        \item Plamp=100W
+        \item tkoelkast=24*15=6 uur
+        \item tlamp=24 uur
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item E=P*t 
+    \item Ekoelkast=300W * 6 uur=1800Wh=1,8kWh
+    \item Elamp= 100W * 24 uur = 2400 Wh=2,4kWh
+    \item De lamp verbruikt meer energie per dag.
+\end{itemize}
+\subsection{Vraag 7:}
+In huis wordt een 10-liter-boiler aangesloten. Het water wordt van 15$^{\circ}$C opgewarmd tot 85$^{\circ}$C. Het water neemt 2940000J=2,94x10$^6$J op om zo warm te worden. De boiler heeft een elektrisch vermogen van 1800W. Bereken hoeveel tijd de boiler voor het verwarmen nodig heeft, als er geen energie verloren gaat.
+\begin{itemize}
+    \item[] Gegeven:\begin{itemize}
+        \item Energie=2940000J
+        \item P=1800W
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item t=E/P 
+    \item t=2940000/1800=1633,33 seconden=27.22 minuten
+    \item De boiler heeft ongeveer 27.22 minuten nodig om te verwarmen.
+\end{itemize}
+\subsection{Vraag 8:}
+Een aquarium heeft standaard volgend verbruikspatroon aan elektrisch vermogen:\begin{itemize}
+    \item Verwarmer: 150W, 15h per dag
+    \item Verlichting: 90W, 14h per dag
+    \item Filterpomp: 25W, 24h per dag
+\end{itemize}
+Bereken de kostprijs per jaar aan energieverbruik voor dit aquarium. Hou rekening met een energiekost van 0,32€/kWh.
+\begin{itemize}
+    \item energieverbruik per dag in Kwh: E=(P*t)/1000
+    \item Everwarmer=(150*12)/1000=1,8kWh $\Rightarrow$ 1.8*365=657kWh per jaar
+    \item Everlichting=(90*14)/1000=1,26kWh $\Rightarrow$ 1.26*365=459,9kWh per jaar
+    \item Efilterpomp=(25*24)/1000=0,6kWh $\Rightarrow$ 0.6*365=219 kWh per jaar
+    \item Etotaal=657+459.9+219=1335,9kWh per jaar
+    \item Kostprijs=1335,9kWh *0.32€/kwh=427,49€ per jaar
+    \item De jaarlijkse kostprijs aan energieverbruik voor dit aquarium is 427,49€
+\end{itemize}
+\end{document}
