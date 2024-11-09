@@ -1,1 +1,1 @@
-# Banaba-Sustainable-energy-managment
+# Banaba-Sustainable-energy-management
