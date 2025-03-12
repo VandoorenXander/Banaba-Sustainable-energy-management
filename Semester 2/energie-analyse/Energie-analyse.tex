@@ -1,0 +1,294 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+
+\usepackage{microtype}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+
+\usepackage{matlab-prettifier}
+% % voor code syntax highlighting
+% \usepackage{minted}
+
+% beter font
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\renewcommand{\familydefault}{\sfdefault}
+\graphicspath{{imagesanalyse/}}
+\begin{document}
+\begin{titlepage}
+    \author{Xander Vandooren}
+    \title{Energie-analyse en
+    forecasting}
+\end{titlepage}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Week 1:}
+\subsection{Inleiding:}
+\subsubsection{Internet of Energy:}
+\paragraph{Data science (analyse) in Energie.}
+\begin{itemize}
+    \item Optimalisatie van energie productie met HEB
+    \item Nationaal energiemarkt-werking
+    \item Voorspelling van toekomstige E-vraag om productie en distributie aan te passen. 
+    \item Herkenning van energieverbruik patronen om aanbods op maat te maken en fouten te detecteren.
+    \item Analyse van werking/status/fouten bij aparaten
+    \item Data gedreven DSM
+\end{itemize}
+\paragraph{Weer voorspelling:}
+Waarom:\begin{itemize}
+    \item Optimalisatie van energie-stromen 
+    \item Verzeker de decarbonisatie van de energiesector 
+    \item Kosten te verminderen 
+    \item Business decissions based on forecasting 
+    \item Beperken downtime en verbeteren van veiligheid en productiviteit 
+    \item Voorspel veranderingen in de vraag demand 
+    \item Trade-off: middelen - betrouwbaarheid - kosten 
+    \item Internet of Energy 
+\end{itemize}
+\textbf{Use-case:}\begin{itemize}
+    \item Voorspelling van energieverbruik 
+    \item operatie van een gebouw 
+    \item fout detectie 
+\end{itemize}
+\subparagraph{Voorspelling van energieverbruik:}
+Voorbeeld:\begin{itemize}
+    \item Input:\begin{itemize}
+        \item W-PV 
+        \item Weer informatie 
+        \item seizoen 
+        \item Uur van de dag 
+        \item WKK-status 
+        \item Time of day (day-ahead)
+    \end{itemize}
+    \item Model (machine learning, deep learning,...)
+    \item output:\begin{itemize}
+        \item Afname elektriciteit
+    \end{itemize}
+\end{itemize}
+\subsubsection{Tools:}
+Type problemen:\begin{itemize}
+    \item Description:\begin{itemize}
+        \item Patronen of trends identificatie 
+        \item Wat beinvloedt energieverbruik 
+        \item Wat beinvloed energieopwekking
+    \end{itemize}
+    \item Voorspelling:\begin{itemize}
+        \item Opwekking forecast 
+        \item Optimale scheduling
+    \end{itemize} 
+    \item Detectie:\begin{itemize}
+        \item Zijn er fouten in het systeem
+    \end{itemize}
+    \item Dynamische evaluatie:\begin{itemize}
+        \item Welke subsidies of tarieven stimuleren de efficientie en betrouwbaarheid
+    \end{itemize}
+\end{itemize}
+Bedrijven in energy analytics:\begin{itemize}
+    \item 3E 
+    \item N-Side 
+    \item Energis 
+    \item Oktow 
+    \item Actemium
+    \item Capgemini 
+    \item Teradata
+    \item \dots 
+\end{itemize}
+\subsubsection{Data verkenning en data wrangling:}
+\section{Week 2:}
+\subsection{Statistiek:}
+\begin{itemize}
+    \item Beschrijvende statistiek: (wij werken in de les met dit soort statistiek)\begin{itemize}
+        \item  Methoden om samen te vatten en te beschrijven de belangrijkste kenmerken van een dataset zoals centrale tendens, variabiliteit en distributie.
+    \end{itemize}
+    \item Inferentiele statistiek:\begin{itemize}
+        \item omvat van trekken van conclusies van de populatie.
+    \end{itemize}
+\end{itemize}
+\subsubsection{verschillende maten voor meten/berekenen}
+\paragraph{Centrummaten}
+Is een maat dat probeer een hele dataset te beschrijven. De waarde
+vertegenwoordigt het midden of de center van de dataset distributie.
+\subparagraph{Gemiddelde}
+Het is de opsomming van twee of meerdere waraden gedeeld op de aantal
+waarden die opgesomd worden.\begin{itemize}
+    \item Meest gebruikte maat van centrale tendens 
+    \item Sterk beinvloedt door uitschieters 
+    \item Wordt gezien zoals een balanspunt
+\end{itemize}
+Gemiddele $\rightarrow$ balanspunt (kwadratische fout)
+\subparagraph{Mode (Nodus)}
+De meest voorkomende waarde in een dataset.\begin{itemize}
+    \item Maat van centrale tendens 
+    \item Niet beinvloedt door uitschieters 
+    \item In een dataset kunnen er geen of meerdere mode waarden aanwezig zijn 
+    \item Het kan gebruit worden zowel voor kwalitatieve als kwantitatieve data 
+\end{itemize}
+\begin{itemize}
+    \item Indien elke waarde maar 1 keer voorkomt in een dataset is er geen modus 
+    \item Indien er waardes zijn die meerdere keren voorkomen is de meest voorkomende de dataset (er kunnen meerdere modus aanwezig zijn)
+\end{itemize}
+\subparagraph{Mediaan}
+Het is de middelste waarde van een dataset. De mediaan komt overeen
+met de 50e percentile van een dataset, m.a.w. is het midden van een
+dataset met een half van de warden kleiner en de andere half groter dan
+de mediaan\begin{itemize}
+    \item Als n oneven is, is de mediaan de middelste waarde van de gesorteerde rij 
+    \item Als n even is, is de mediaan  het gemiddelde van de twee middelste waarden van de gesorteerde rij 
+    \item positie van de median is $\frac{n+1}{2}$
+    \item Wordt niet beinvloedt door uitschieters 
+\end{itemize}
+\subparagraph{Skewness:}
+\begin{itemize}
+    \item negatively skewed (gemiddelde ligt meer naar links)
+    \item Normal (no skew) (alle 3 de waarden liggen op elkaar)
+    \item Positively skewed (gemiddelde ligt meer naar rechts)
+\end{itemize}
+Centrummaten alleen zijn niet genoeg data te beschrijven.
+\paragraph{Spreidingsmaten}
+\subparagraph{Spreidingsbreedte}
+Het is het verschil tussen de grootste en de kleinste warden in de
+dataset\begin{itemize}
+    \item $x_max$-$x_min$
+    \item Sterk gevoelig aan extreme waarden/uitschieters
+    \item Geeft geen informatie over de distributie van de data
+\end{itemize}
+\begin{itemize}
+    \item Makkelijk te bepalen 
+    \item Neemt maar 2 waarden (min,max)
+    \item Sterk gevoelig aan uitschieters
+\end{itemize}
+\subparagraph{Kwartielafstand (IQR)}
+Het wordt ook benoemd zoals middenspreiding, midden 50\%, 4de
+spreading of H-spreading. Het wordt gedefinieerd zoals het verschil
+tussen de 75e en 25e percentielen van de data.
+\begin{itemize}
+    \item splitsts een gesorteerde dataset in 4 gelijke delen
+    \item Eerste kwartiel is de 25e percentiel
+    \item Tweede kwartiel is de 50e percentiel=mediaan
+    \item Derde kwartiel is de 75e percentiel
+\end{itemize}
+\begin{itemize}
+    \item Eenvoudig te bepalen 
+    \item Vertegenwoordigt de spreiding van de middenste 50\% 
+    \item niet gevoelig aan uitschieters
+\end{itemize}
+\subparagraph{Boxplot}
+Boxplot= box en whisker plot
+Geeft een 5 getallen samenvatting van een dataset weer.\begin{itemize}
+    \item Minimum 
+    \item 1ste kwartiel 
+    \item mediaan 
+    \item 3de kwartiel 
+    \item maximum
+\end{itemize}
+Skewness kan je ook zien op een boxplot.
+\subparagraph{Variantie}
+Telt de spreiding van de data t.o.v het gemiddelde. Het kan bepaald worden voor een sample ($s^2$) of een populatie ($\sigma^2$)
+\subparagraph{Standaardafwijking}
+Net zoals de variantie kan bepaald worden voor zowel een sample
+(s) of een populatie ($\sigma$). In beide gevallen is de vierkantswortel van
+de variantie
+\begin{itemize}
+    \item moeilijker te bepalen 
+    \item Gebasseerd op alle waarden 
+    \item Gevoelig aan uitschieters voor kleine datasets
+\end{itemize}
+\subparagraph{Variatiecoefficient:}
+Het wordt gedefineerd zoals de verhouding van de Standaardafwijking tot het gemiddelde. V wordt uigedrukt in percentages.\begin{itemize}
+    \item V<5\% $\rightarrow$ heel kleine relatieve variatie 
+    \item 5\% < V <10\% $\rightarrow$ kleine relatieve variatie 
+    \item V>50\% $\rightarrow$ heel grote variatie
+\end{itemize}
+\subparagraph{Relatieve spreidingsmaten}
+Ze worden gebruikt om de vergelijken te doen van de spreiding van twee of meer
+datasets. Relatieve betekent dat zonder grootheden is \begin{itemize}
+    \item Beschrijft de positie van een datapunt t.o.v. de rest van de data 
+    \item Twee veel voorkomende maten zijn:\begin{itemize}
+        \item Percentiel 
+        \item Z-score 
+    \end{itemize}
+    \item Een optie om uitschieters te detecteren
+\end{itemize}
+\begin{itemize}
+    \item Percentiel:\begin{itemize}
+        \item Waarde van 0 tot 100 dat de percentage geeft dat gelijk of onder is 
+        \item \begin{itemize}
+            \item Mediaan is 50e percentiel 
+            \item K1 is de 25e percentiel 
+            \item K3 is de 75e percentiel
+        \end{itemize}
+    \end{itemize}
+    \item Z-score:\begin{itemize}
+        \item Het beschrijft het verband van een datapunt met het gemiddelde
+        van de groep. Het wordt gemeten in termen van de
+        standaardafwijkingen van het gemiddelde.
+        \item Dataset met een absolute waarde van z-score groter dan 3
+        Voor heel skewed data distributies, een absolute waarde van z-score
+        groter dan 2
+    \end{itemize}
+\end{itemize}
+\subsection{Data Visualisatie}
+\begin{figure}[t]
+    \includegraphics[width=\textwidth]{Charts.PNG}
+    \caption{Vershillende charts voor specifieke situaties}
+    \centering
+\end{figure}
+\begin{itemize}
+    \item Data wrangling 
+    \item Missing data and outliers 
+    \item Features and KPI
+\end{itemize}
+\begin{itemize}
+    \item Histogrammen:\begin{itemize}
+        \item 1 variabele
+    \end{itemize}
+    \item Box plot:\begin{itemize}
+        \item 1 variabele
+    \end{itemize}
+    \item Scatter plots\begin{itemize}
+        \item 2 variabelen 
+    \end{itemize}
+    \item Lijn plots:\begin{itemize}
+        \item 2 variabelen
+    \end{itemize}
+    \item Scatter plot matrix:\begin{itemize}
+        \item Indien meer dan 2 variabelen
+    \end{itemize}
+    \item Heatmaps:\begin{itemize}
+        \item Indien meer dan 2 variabelen
+    \end{itemize}
+\end{itemize}
+\subsubsection{Sankey Diagrams}
+$\rightarrow$ energie flow
+\subsection{Tools voor data Visualisatie}
+\begin{itemize}
+    \item Commerciele tools:\begin{itemize}
+        \item Power-BI, Looker, Tableau, Qlik sense, Google data studio
+    \end{itemize}
+    \item Eigen tools:\begin{itemize}
+        \item Jupyter-voila, Streamlit, Plotly Dash, Flask, Django
+    \end{itemize}
+\end{itemize}
+\subsection{Verkennende data analyse}
+\begin{itemize}
+    \item Profielaggregatie (jaarlijks, maandelijks, per week, per dag) 
+    \item Energieverbruik distributie - duration curve 
+    \item Correlatie tussen variabelen
+    \item Heatmaps
+\end{itemize}
+\section{Week 3:}
+Hoe meer 
+\end{document}
