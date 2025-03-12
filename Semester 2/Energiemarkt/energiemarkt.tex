@@ -1,0 +1,166 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+
+\usepackage{microtype}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+
+\usepackage{matlab-prettifier}
+% % voor code syntax highlighting
+% \usepackage{minted}
+
+% beter font
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\renewcommand{\familydefault}{\sfdefault}
+\graphicspath{{imagessoft/}}
+\begin{document}
+\begin{titlepage}
+    \author{Xander Vandooren}
+    \title{Energiemarkt}
+\end{titlepage}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Week 1:}
+\subsection{Inleiding:}
+Er zijn 4 algemene pilaren:\begin{itemize}
+    \item Energy efficiency 
+    \item Sourcing 
+    \item GHG emissions 
+    \item flexibility
+\end{itemize}
+\subsubsection{Energie kost management:}
+\begin{itemize}
+    \item[] Globale energiekost:\begin{itemize}
+        \item $\Sigma$ { Verbruik i x Eenheidsprijs i } +
+        \item Vaste kosten 
+        \item Kosten energie-gerelateerde emissies + 
+        \item Management cost
+    \end{itemize}
+\end{itemize}
+strategie m.b.t de prijs: Acties uitvoeren en beslissingen nemen de energieprijzen en de hiermee verbonden financiele risico's onder controle te houden.
+\paragraph{oefening:}
+stel we hebben 3000 MWH en het is €80 per tCO2. We hebben een emissie factor (EF) van 56,... tCO2/TJ.
+3600MJ per MWh. 3GWh * 3/6=10.8 TJ. 600tCO2*80=€48000
+\subsubsection{Energy management:}
+De management kost is meestal 2-3\% max van uw totaal verbruik.
+\begin{itemize}
+    \item Strategic approach for energy procurement but also for the sale of
+    electricity and gas.
+    \item This implies a strategy adapted to each situation.
+    \item This adaptability is based on :\begin{itemize}
+        \item Knowledge of the market.
+        \item Energy needs and risk profile.
+        \item The personalized reports and budget estimates
+    \end{itemize}
+\end{itemize}
+\subsubsection{Energy markets organization:}
+\begin{itemize}
+    \item Energiehandel (wholesale market) van producenten tot leveranciers. hier koopt de leverancier elektriciteitsproductie/gasproductie om zich te bevoorraden om dit dan te kunnen verkopen/leveren aan zijn klanten.(retail market). klanten zijn meestal particulieren of bedrijven.
+\end{itemize}
+landelijk transportnet is van Elia, Regionale netten is bij ons van Fluvius. (Vlaanderen) De producenten zullen enkel zoveel elektriciteit genereren dat gevraagd wordt door leveranciers (om onbalans te voorkomen).
+\subsubsection{Wholesale market:}
+\begin{itemize}
+    \item Energy-Only-Market:\begin{itemize}
+        \item Energy Exchange:\begin{itemize}
+            \item Forward Market:\begin{itemize}
+                \item Futures Options
+            \end{itemize}
+            \item Spot Market:\begin{itemize}
+                \item Day-ahead 
+                \item Intraday
+            \end{itemize}
+        \end{itemize}
+        \item Over the counter trading (OTC)\begin{itemize}
+            \item Spot Contracts\begin{itemize}
+                \item Day-ahead 
+                \item Intraday
+            \end{itemize}
+            \item Future contracts
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+future en forward markten zijn hetzelfde. Worden gebruikt voor leveringen die voor in de toekomst zijn. Spot markten zijn voor ten laatste morgen of zelf nog vandaag tot 4 uur kan op gekocht worden.
+\subsubsection{Retail market - Strategic Energy procurement - Grid Power and Gas:}
+Procurement:\begin{itemize}
+    \item Differences between suppliers and their offers are becoming increasingly minimal.\begin{itemize}
+        \item The need to choose a supplier for its competitiveness and for its potential to match the chosen purchasing strategy.
+    \end{itemize}
+    \item Energy price = reference wholesale market index + shape cost + balancing costs + commercial margin.\begin{itemize}
+        \item Fixed price contracts (Retail) = reference wholesale market index = 100\% locked at day of contracting
+        \item Variable price contracts (Retail) = reference wholesale market index remains floating
+        \item Framework contracts (Retail) = floating wholesale market price with (optionial) price fixing possibilities (Clicks)
+    \end{itemize}
+\end{itemize}
+Purchase strategy:\begin{itemize}
+    \item Implement a proactive price fixing mechanism to keep energy costs and associated risks under control. 
+    \item A transparent purchasing strategy is based on two elements:\begin{itemize}
+        \item Distribution of purchases over time (and therefore distribution of risk) 
+        \item Use of a CAP \& FLOOR on energy prices - as a trigger for price fixings (clicks), OR, 
+        \item Use of financial indicators (VaR, M2M, budget variance, ...) as a trigger for price fixings (clicks)
+    \end{itemize}
+\end{itemize}
+The result of the purchasing strategy depends on the chosen risk profile.This choice of risk profile may vary over time depending on long-term forecasts and business activity.
+\section{Week 4:}
+alles waar je voor betaald op de retail markt:uw shape,sway en balancing.
+\subsection{oefening 1:}
+Wholesale + 7,47 €/MWh, totaalverbruik=7.017,239 MWh \\  
+Wholesale: "hedgen" Cal 2026: 0.2 MW @ 87.26, 0.2 MW @ 82.89, 0.3 MW @ 82.69 \\ 
+WACOH, WACOE, energieprijs
+we kunnen op engie,elexys kijken voor de prijzen voor de groothandelsmarkt. We kunnen hier vinden dat de forward voor CAL 2026 82,58 €/MWh is.\begin{itemize}
+    \item 365*24=8760
+    \item WACOH (Weighted Average Cost of Hedge):$\frac{(0.2x87.26)+(0.2x82.89)+(0.3x82.69)}{0.2+0.2+0.3}$ = 84.05 €
+    \item hedged \%=37\%
+    \item WACOE (Weighted Average Cost of Energy): $\frac{(6132x84.05)+(885.239x82.58)}{7017.239}$=83.86€/MWh
+    \item energieprijs: (84.05+83.86)/2+7.47=91.33€
+\end{itemize}
+\subsubsection{oefening 1.2:}
+Cal 2025: 0.3MW @ 89.34, Q3 2025= 0.3 MW @ 77.01, Q3 2025= 0.4 MW @ 69.37,jaar:3508.619,Q3=894.058MWh, spotprijs voor Q3=80.28\begin{itemize}
+    \item 0.3+0.3+0.3=1 * (31+31+30)*24=2208MWh dus je bent overhedged. (de 30+30+31 is de het kwartaal 3 maanden)
+    \item WACOH: $\frac{(0.3 x 89.34)+(0.3x77.01)+(0.4x69.37)}{0.3+0.3+0.4}$=77.653€/MWh
+    \item hedged \%= 247\%
+    \item het gene dat je overhedged die je niet gebruikt kan op de spotmarkt terug verkocht worden (kan wel zijn dat hij er verlies op doet als de spotmarkt lager staat dan de prijs dat hij er voor betaald heeft). Kan ook zijn da je er geld op maakt.
+    \item WACOE: dit zal ook 77.653€ zijn omdat het overhedged is.
+    \item energieprijs: \begin{itemize}
+        \item 2208-894.058=1313.942MWh
+        \item 77.653+7.47=85.123€ 894*85,12=75.847€
+        \item 1313.942*(80.28-77.65)=3455.82€
+        \item 72391€ (75.847-3455.82)
+        \item 80.97 €/MWh
+    \end{itemize}
+\end{itemize}
+\subsection{ETS2:}
+EUA "emissierechten": 70€/tCO2\\
+aardgas: MWh $\rightarrow$ GCV. Om van MWh naar Joule te gaan doe je *3.6 en kom je uit in GJ$_{NCV}$\\
+$\hookrightarrow$ MWh=(1MJ/sec)*3600 sec\\
+Emissie factor van aardgas: 56 Ton CO2/ TJ$_{NCV}$ \\ 
+Omzettingsfactor $\frac{NCV}{GCV}$=0.902\\
+\subsubsection{voorbeeld:}
+als we 1000MWh leveren dan kost ons dat 12740 aan ETS2.3250,8 GJ$_{NCV}$=3.25 TJ*56=182 ton CO2. 182*70=12740€
+\section{Week 5:}
+P0 bevat:\begin{itemize}
+    \item shape 
+    \item Sway 
+    \item Balancing
+\end{itemize}
+Supply margin\\
+\subsection{Primaire energie:}
+bij 100mWh met een STEG centrale 1=40\%. dus de primaire energie is 250mWh elekrisch uit . EN uit het gas net halen we 100 mWH daar halen we 350 mWH primaire energie uit. Dus primair hebben we door het toepassen van de WKK 150 mWh primaire energie bespaard.
+\subsection{Steuncertificaten:}
+prijs=quotum*boette
+\end{document}
+
+
