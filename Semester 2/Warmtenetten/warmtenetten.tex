@@ -1,0 +1,166 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+
+\usepackage{microtype}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+
+\usepackage{matlab-prettifier}
+% % voor code syntax highlighting
+% \usepackage{minted}
+
+% beter font
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\usepackage{gensymb}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\renewcommand{\familydefault}{\sfdefault}
+\graphicspath{{imagessoft/}}
+\begin{document}
+\begin{titlepage}
+    \author{Xander Vandooren}
+    \title{Warmtenetten}
+\end{titlepage}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Eerste les:}
+zal waarschijnlijk klein theorie examen zijn (gesloten boek) en voor oefeningen zullen het vooral eenvoudige oefeningen zijn waardoor je logische schattingen zou moeten kunnen doen. praktisch examen zal open boek zijn. $Q=m*c*\Delta T$ zeker te kennen!
+\subsection{Inleiding:}
+\textbf{Definition:} District heating and cooling (DAC) is een een systeem voor het distributeren van warmte gegenereerd in gecentralizeerde locaties door een susyeem van geinsuleerde pijpen van residentiele en commerciele warmte requirements, zoals space heating en water heating (HVAC).\bigskip \\
+De temperaturen van de warmte netten worden lager en lager.Processen met warmte worden efficienter naarmate dat de temperatuur lager en lager wordt. De energie noden voor verwarming worden lager en lager (beter geisoleerde woningen,\dots)
+\begin{itemize}
+    \item Gecentraliseerde warmte/koude bronnen / warmte opslag / lokale synergie 
+    \item Buizen <= warmteverliezen / isolatie / dimensionering 
+    \item Expansievat <= dimensionering 
+    \item Warmtewisselaar <= dimensionering / elektrisch equivalent schema 
+    \item Pompen en kleppen, temperatuur regime <= sturingen / dimensionering 
+    \item Boosterwarmtepompen <= COP-model (warmtepompen hebben een COP van 1,2 tot met 6-7) dat wil dus zeggen voor dat je zoveel keer meer warmte uit energie krijgt. boilers hebben een COP van 1.
+\end{itemize}
+Residentieel: aandeel CV daalt, SWW wordt ook belangrijk\\
+Het warmtenet wordt zelf voor een stuk als buffer gebruikt\\
+Lokale recuperatie van restwarmte:\begin{itemize}
+    \item Vegitec 
+    \item Tomato Master \& Aqua4C
+\end{itemize}
+Sommige warmtenetten zijn 'stoomnetwerken' (productie stoom wordt uitbesteed als eerste stap in de carbonisatie en flexbilisering):\begin{itemize}
+    \item Agristo koopt stoom as a service 
+    \item Van de Moortele besteedt stoom uit
+\end{itemize}
+Centrale productie van warmte:\begin{itemize}
+    \item Afvalverbranding 
+    \item Restwarmte 
+    \item Gasketels 
+    \item WKK 
+    \item WKK met biomassa 
+    \item Geothermische energie 
+    \item Warmtepompen 
+    \item Zonneboilers 
+    \item Aquathermie en riothermie
+\end{itemize}
+\subsubsection{disctrict heating en de evolutie:}
+enthalpie = totale warmte en totale warmte is voelbare warmte en latente warmte. verdampen gebeurt enkel bovenaan uw vloeistof en koken is als uw vloeistof overal ongeveer even warm is.\bigskip \\
+Bij buizen moet ter hoogte van de doorsnede de druk volledig kunnen opgevangen worden. F=p.A waarbij F uw kracht is p uw druk en A uw oppervlakte. De trekspanning is $\frac{F}{A}$ $\rightarrow$ $\frac{F/2}{lengte * wand dikte}$ hoe kleiner de buis hoe meer druk je er op kan hebben, grote buizen zijn niet goed voor hoge druk.
+\paragraph{Lineaire warmtedichtheid:}
+\begin{itemize}
+    \item[] LWD=$\frac{Q_{geleverd}}{L_{net}}$
+    \item met LWD de linaire warmte dichtheid [GJ/(a m)] of [MWh/(a m)]
+    \item $Q_{geleverd}$ is de hoeveelheid energie afgeleverd bij de gebruiker per oppervlakte [GJ/a] of [MWh/a]
+    \item $L_{net}$: is de trace lengte van traject m (lengte van hoofdnet, de vertakking en leidingen tot aan de huisaansluiting, gecombineerd met de aanvoer retour leiding, dus gelijk aan de totale lengte/2) [m]
+\end{itemize}
+Bij lagere lineaire warmtedichtheden zijn de leidingsverliezen ten gevolge van warmteverlies van een systeem relatief hoog, en daarmee ook de energie kosten. Verder betekent een lage LWD waarde ook dat er relatief veel leidingen liggen voor de hoeveelheid getransporteerde energie. Daarmee zijn de investeringskosten voor leidingen per eenheid energie ook hoog. Vaak betekend een lage LWD waarde dat de business case moeizaam loopt.
+% \subparagraph{Duurzaamheid van een warmtenet}
+% Het eerste kental is de primary energy ratio (PER), die gedefineerd is als de geleverde warmte, gedeeld door de totale energie input aan primaire fossiele energi, benodigd om die warmte te leveren.
+% $PER$=$\frac{Q_{netto geleverd}}{B_{primair fossiel}-\frac{E_{prod}}{\eta_{el}}}[-]$
+% dus uw netto geleverd gedeelt door het verschil van uw brandstof - in elektriciteit productie (elek prod/ uw rendement elektriciteit).
+\subsubsection{gelijktijdigheid}
+hoe meer woningen aangesloten, hoe meer gediversifeerd de vraag, hoe lager de gelijktijdigheid voor de centrale installatie. Er moet ook altijd een andere manier aanwezig zijn om uw warmte te voorzien indien er een warmtenet of deel van een warmtenet uitvalt. er is altijd redundancy dat we rekening mee moeten houden dus er zijn backups.
+\subsubsection{Ruimtebesparend en veilig}
+Heat unit interface is eenvoudige Warmtewisselaar\begin{itemize}
+    \item Geen gasleiding in gebouw 
+    \item Ruimtebesparend 
+    \item Veilig
+\end{itemize}
+\subsubsection{Buffercapaciteit}
+\begin{itemize}
+    \item Inhoud van warmtenet is zelf een buffer 
+    \item Optimalisatie door bijkomende buffer 
+    \item Ontkoppeling vraag en aanbod
+\end{itemize}
+aansluiting op warmte net kost ongeveer €1000 per lopende meter. Dus als uw aansluiting 1 meter van de dam ligt dan zal dit ongeveer €1000 zijn.
+\section{Les 2:}
+\subsection{Buizen/leidingen:}
+\begin{itemize}
+    \item Materialen 
+    \item Warmtetransport/ Debieten/ Drukval/ DN(diameter nominaal)
+    \item Isolatie/warmteverliezen
+\end{itemize}
+\subsubsection{Materialen}
+Stalen buis opgeschuimd in PUR-schuim met een mantelbuis in HDPE is de meest voorkomende.
+\subsubsection{Warmtetransport/ Debieten/ Drukval/ DN:}
+altijd zelfde water in warmte net (gesloten systeem). In uw collector wil je geen hoge stroomingssnelheden. Naarmate je buis groter wordt kan je grotere stroomingssnelheden krijgen. Dit komt omdat je viscositeit hebt (water aan de randen zullen trager zijn dan in centrum dus hoe verder van rand hoe meer snelheid je kan hebben).
+\paragraph{Oefening:}
+Leidingen: Bereken de leidingen voor volgend systeem.\begin{itemize}
+    \item Q opwekker= 500kW 
+    \item Aanvoertemperatuur 80 graden celsius voor beide afnemers
+    \item Afnemer 1 (A1): 200 kW, dT 20K 
+    \item Afnemer 2 (A2): 100 kW, dT 15K
+\end{itemize}
+Gevraagd:\begin{itemize}
+    \item Q net (m$^3$/h)=? 
+    \item Verwachte retourtemperatuur? 
+    \item DN?
+\end{itemize}
+1 bar = 100 000 pascal (Pa) = 10$^5$ Pa\bigskip \\
+ordergroottes: 100 Pa/m\bigskip \\
+als je 50 meter trace lengte hebt dan is uw buislengte 2x uw trace lengte
+\subsubsection{Isolatie van buizen:}
+\subsubsection{Heat transfer:}
+\begin{itemize}
+    \item[] $\Rightarrow$ Energy transfer $\rightarrow$ temperatuur verschil
+    \item[] $\hookrightarrow$ in een medium, tussen 2 of meer media
+\end{itemize}
+$\Rightarrow$\begin{itemize}
+    \item conductie: temperatuur gradient in een stationair medium 
+    \item Convectie: tussen vaste materie/oppervlak \& een bewegende vloeistof (vloeistof/gas)
+    \item Radiatie: elektromagenitsche straling (tussen oppervlakes met verschillende temperatuur)
+\end{itemize}
+Conductie: Q=-k.A.$\frac{dt}{dx}$ Fourier's law 
+Hierbij is:\begin{itemize}
+    \item Q= $\frac{dq}{dt}$ $\rightarrow$ [W] [J/$\Delta$] 
+    \item A is de oppervlakte in [$m^2$]
+    \item $\frac{dt}{dx}$ is [K/m]
+\end{itemize}
+Convectie: Q=h.A.(T${_S}$-T${_\infty}$) Newton's Law
+Hierbij is:\begin{itemize}
+    \item Q=$\frac{dQ}{dr}$ [J/s][W]
+    \item h= heat transfer coefficient [h]=[W/m$^2$K]\begin{itemize}
+        \item functie van geometry,vloeistof bewging,$\Delta$T,\dots\begin{itemize}
+            \item forced convection/natural convection
+        \end{itemize}
+    \end{itemize}
+    \item A= area exposed heat transfer [m$^2$]
+    \item T$_s$= surface temp [\degree C] 
+    \item T$_\infty$ fluid temp [\degree C] (in beweging ver van oppervlak)
+\end{itemize}
+Radiatie: Q= $\Sigma$ * $\epsilon$ * A * (T${^4}$$_1$-T${^4}$$_2$) Steffan-Boltzmenn Law (zullen we zelf nie zoveel moeten berekenen is vooral interessant bij hoge temperaturen)
+\begin{itemize}
+    \item Q=$\frac{dQ}{dt}$ $\rightarrow$ [J/s] [W]
+    \item $\Sigma$ Steffen Boltzmann = 5,67*10$^{-8}$ [W/m$^2$K$^4$]
+    \item emissivity (surface property) $\epsilon$ [0,1] als $\epsilon$=1 $\rightarrow$ perfecte straler $\rightarrow$ black body 
+    \item A= radiating surface [m$^2$]
+    \item [K]! absolute temp 
+    \item T[K]=T[\degree C]+273,15 
+\end{itemize}
+\end{document}
