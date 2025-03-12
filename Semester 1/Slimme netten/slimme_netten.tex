@@ -1,0 +1,1499 @@
+
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+
+\usepackage{microtype}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+
+\usepackage{matlab-prettifier}
+% % voor code syntax highlighting
+% \usepackage{minted}
+
+% beter font
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\renewcommand{\familydefault}{\sfdefault}
+\graphicspath{{imagessoft/}}
+\begin{document}
+\begin{titlepage}
+    \author{Xander Vandooren}
+    \title{Slimme netten}
+\end{titlepage}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Week 1:}
+\subsection{Inleiding:}
+Wat is het net van de toekomst?
+\begin{itemize}
+    \item Centraal 
+    \item Decentraal
+\end{itemize}
+Wind en zonne-energie veel sneller dan andere systemen aan 1000+ TWh. Een nadeel hiervan is dat we op een gegeven moment zoveel energie opwekken dat we teveel energie hebben die we niet weg krijgen.
+\subsubsection{is 100\% hernieuwbare energie mogelijk?:}
+\paragraph{Dunkelflaute}
+Moment waar er geen zon en wind was voor langere periodes en dat er ook niet genoeg alternatieven waren.
+\paragraph{net load}
+Met zonne energie kunnen we over de middag alles van ons net doen met zonneproductie. Het probleem is dat we kort na de middag rond 15:00 we dan een veel te hoge prijs hebben en dat de centrales meer werk moeten leveren.
+\subsubsection{Is energieopslag de ultieme oplossing:}
+We hebben ze voor nu nodig omdat we nu met overproductie zitten. Dat wil niet zeggen dat dit de ultieme oplossing is maar het is wel essentieel voor de dag van vandaag.
+\subsubsection{Klimaatopwarming of afkoeling?}
+Als we nu nog ons best doen kunnen we het nog "omdraaien". Hoe pakken we het best aan?\newline
+\section{Week 2:}
+\subsection{Tariefstructuren:}
+\subsubsection{Flexpiramide:}
+Flexibel energiesysteem wordt heel belangrijk...\begin{itemize}
+    \item Om bevoorradingszekerheiden het netevenwicht op elk moment te garanderen, is hogere flexibiliteit nodig.
+    \item Zowel voor korte periodes (uren, dagen) als lange periodes (weken, maanden).
+    \item Flexpiramide vat de belangrijkste vormen van flexibiliteit samen.
+\end{itemize}
+De piramide van beneden naar boven gezien:
+\begin{enumerate}
+    \item Infrastructuur: Dynamisch beheer van netten
+    \item Tarieven: Impliciete flexibiliteit 
+    \item Commerciele flexibiliteit: Expliciete flexibiliteit, ingekocht op markt\begin{itemize}
+        \item Balancering, veroorradingszekerheid, lokaal congestiebeheer,...
+    \end{itemize}
+    \item Technische flexibiliteit: Expliciete flexibiliteit, opgelegd door netbeheerder\begin{itemize}
+        \item Louter lokaal congestiebeheer
+    \end{itemize}
+\end{enumerate}
+\subsubsection{Dynamisch contract:}
+Een contract die dynamische prijzen heeft bvb. rond middag heel lage prijzen en rond 17:00 tot 20:00 hogere prijzen. Is wel complexer kwa aanrekening wordt nog niet vaak gebruikt in residentiele wereld. 
+\paragraph{Kleine onderneming:}
+Prijs voor kleine onderneming (50MWh) met dag/nacht regime en injectie 50.000 kWh (29.000 dag/21.000 nacht). Dynamische contracten zijn wel al veel gebruikt in deze omgevingen wordt de spot markt genoemd (day ahead markt)
+\subsubsection{Digitale meter:}
+Digitale meter kan injectie en afname tarief perfect appart berekenen ivgm met terugdraaiende teller waar uw injectie in uw afname tarief zat. Daarom zijn veel mensen nog tegen digitale meter. (gemiddeld 3.5kWh verbruik per dag 1900 dag/1600 nacht) Dgitiale meter doet aan real time sampling (elke seconde nieuwe data). inectieprijs = €0.04 kWh en afname prijs is €0.3 kWh
+We hadden vroeger voor lange tijd een plateau van +- €0.24 afname prijs maar sinds de energiecrisis (periode corona, start oorlog Ukraine) prijs veel gestegen en nu terug wat gestagneerd rond de €0.34 maar we zijn nie zeker of dit voor 5 jaar het plateau zal blijven.
+Injectieprijs is zelfde als voor energiecrisis maar afnameprijs is gestegen met voor energie crisis.
+\begin{itemize}
+    \item Waarom:\begin{itemize}
+        \item Technologische evolutie 
+        \item Ondersteunen van de energietransitie\begin{itemize}
+            \item Digitale meter fungeert als 'enabler'
+        \end{itemize}
+        \item Verfijning van het dienstaanbod ondersteunen\begin{itemize}
+            \item Invoering nieuwe Tariefstructuren
+        \end{itemize}
+    \end{itemize}
+    \item Wat:\begin{itemize}
+        \item Digitale meter != slimme meter 
+        \item 4 uitleesbare meterstanden\begin{itemize}
+            \item Vanaf januari 2020: 1 waarde per dag 
+            \item Vanaf kwartaal 3 2020: kwartierdata
+        \end{itemize}
+        \item 2 gebruikerspoorten met specifiek doel:\begin{itemize}
+            \item P1 poort: Gebruikerspoort voor verbruiksinformatie
+            \item S1 poort: Gebruikerspoort voor geavanceerde detectie- en regelingen:\begin{itemize}
+                \item Toestelherkenning mogelijk 
+                \item Poorten zijn standaard gedeactiveerd
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    \item Wanneer:\begin{itemize}
+        \item Plaatsing sinds juli 2019:\begin{itemize}
+            \item Gezinnen die voor 1 juli 2019 al zonnepanelen hadden (eind 2022)
+            \item Gezinnen die voor 1 julie 2019 een budgetmeter toegewezen had (eind 2021)
+            \item Elk vlaams gezin zal tegen eind 2034 beschikken over digitale meter 
+            \item Wil je digitale meter sneller?:\begin{itemize}
+                \item koste vroeger 88 euro om te plaatsen maar is nu gratis.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+Inzicht in eigen data:\begin{itemize}
+    \item Verbruikshistoriek opvragen:\begin{itemize}
+        \item Dag/week/maand \& jaardata:\begin{itemize}
+            \item Realtime data uitleesbaar (\& aanstuurbaar)
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\subsubsection{Tariefstructuur vanaf 2021:}
+Verschil tariefstructuur tot eind 2020 versus start 2021:\begin{itemize}
+    \item cfr. Uitspraak hof van beroep- 15 jaar principe terugdraaiende teller
+\end{itemize}
+\paragraph{Tot 2020:}\begin{itemize}
+    \item Klassieke teller:\begin{itemize}
+        \item Prosumententarief (sinds 2015) als vaste kost per kVa PV-omvormervermogen:\begin{itemize}
+            \item Hoe hoog zelfconsumptie/zelfvoorziening is, geen enkel prijsvoordeel voor de installatie
+        \end{itemize}
+    \end{itemize}
+    \item Digitale meter:\begin{itemize}
+        \item Keuze tussen prosumententarief of verrekening tussen werkelijk verbruik \& injectie.
+    \end{itemize}
+\end{itemize}
+\paragraph{Vanaf 2021:}\begin{itemize}
+    \item Klassieke teller:\begin{itemize}
+        \item Prosumententarief blijft bestaan
+    \end{itemize}
+    \item Digitale meter:\begin{itemize}
+        \item ToU term mogelijk voor energieprijzen (cfr. YUSO, Engie)
+        \item Afrekening volgens werkelijke afname en injectie\begin{itemize}
+            \item Men wordt beloond als men meer eigen opgewekte energie direct kan verbruiken in eigen installatie.
+            \item Prijs afname +- 25 eurocent 
+            \item Prijs injectie
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+economische haalbaarheid\begin{itemize}
+    \item Situatie: jaarlijks verbruik = jaarlijkse opbrengst.
+\end{itemize}
+Als je geen digitale meter hebt is batterij niet interessant want bij terugdraaiende teller kan je niet weten hoeveel je hebt bespaard/verdient met uw batterij.
+\subsubsection{Nieuwe tariefstructuur 2022-2024-KVM/GVM}
+KVM versus GVM:\begin{itemize}
+    \item KVM: kleinverbruiksmeetinrichting- Aansluitcapaciteit < 56 kVA of PV installatie met PV omvormervermogen <= 10 kVa. 
+    \item GVM: Grootverbruiksmeetinrichting- Andere dan de bovenstaande
+\end{itemize}
+Enkel distributie wordt hier in getoond, worden afgestrafd voor piek verbruik. gemakkelijker te berekenen met digitale meter dan met aftrekkende teller. Aftrekkende teller heeft meestal een grotre vaste kost dan digitale meter omdat we nie echt kunnen weten wat het piek verbruik is. (Dit is bij Gezinnen en KMO's)
+\subsubsection{Nieuwe tariefstructuur 2023-2024 KVM}
+Enkel van toepassing op nettarieven. Je betaal voor klassieke meter meer dan digitale meter Capactieitstarief (gemiddelde maandpiek). uw normaal tarief is ook wat lager bij digitale meter dan bij klassieke meter. Kwh wordt real time berekend maar piek wordt per kwartier berekend (Fluvius kan dit niet real time berekenen) dus Capactieitstarief wordt per kwartier berekend. Je wordt op het rollend maandgemiddelde van de afgelopen 12 maanden geplaatst. bvb als in september uw piek 6kW was maar het gemiddelde van de 12 is lager kan het zijn dat je zal betalen voor 5kW piek.
+\subsubsection{Capaciteitstarief:}
+Vroeger betaalden we in € per kWh maar met capaciteitstarief betaal je dan ook voor piekvermogen. bvb als je op het eind van het jaar een feestje geeft zal je een piek hebben die je het rest van het jaar niet hebt en met capaciteitstarief moet je daar op betalen (hoe hoger de piek hoe meer je betaald in distributiekosten). Distributie is in € per Kw
+\paragraph{Residentieel Capactieitstarief}
+\begin{itemize}
+    \item Netkosten moeten betaalbaar blijven
+    \item Net efficientie moet stijgen omwillen van stijgende elektrificatie:\begin{itemize}
+        \item WP \& EV worden aanzien als grootste uitdaging binnen elektrificatie van netwerk\begin{itemize}
+            \item Zonder optimalisatie netkosten worden tussen 2020 en 2023 extra investeringne net ingeschat op 88-1.150 miljoen € $\rightarrow$ stijgende elektriciteitsfactuur voor iedereen 
+            \item Echter zijn beide perfect in staat om in een minimale netimpact te realiseren door het slim beheren!
+        \end{itemize}
+        \item Gelijklopende trend in buurlanden
+    \end{itemize}
+\end{itemize}
+Fluvius blijft investeren:\begin{itemize}
+    \item Capaciteitstarief heeft niet tot doel om daardoor netinvesteringen uit te laten:\begin{itemize}
+        \item Fluvius zal in periode 2023-2024 $\rightarrow$ 4 miljard investeren voor het versterken van de netinfrastructuur
+    \end{itemize}
+    \item Capaciteitstarief heeft niet tot doel om daardoor netinvesteringen uit te laten:\begin{itemize}
+        \item 4 miljard extra, naast de reeds geplande 7 miljard euro voor de energietransitie mogelijk te maken.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Energiemarkten:}
+Laatste jaren is marktstructuur sterk gewijzigd:\begin{itemize}
+    \item Blauwe lijnen= fysieke stroom naar eindgebruikers
+    \item Nieuwe marktspelers:\begin{itemize}
+        \item ESCO
+        \item Aggregator:\begin{itemize}
+            \item Sluiten contracten af met evenwichtsverantwoordelijken (BRP's), de distributienetbeheerders en de prosumenten (producent+consument is vaak wij)
+        \end{itemize}
+    \end{itemize}
+    \item Doelstellinge marktspelers- evenwicht in vraag en aanbod 
+    \item Zowel energie- als capaciteitsdiensten om vraag en aanbod af te stemmen:\begin{itemize}
+        \item Energiedienst: flexibel aanwenden van productie-eenheden, opslagsystemen of grote verbruikers (Dit wordt meest gebruikt):\begin{itemize}
+            \item Forward, DA (Day ahead markt), ID, onbalansmarkt
+        \end{itemize}
+        \item Capaciteitsdienst: Reserveren van bepaalde capaciteit op voorhand:\begin{itemize}
+            \item FCR, Afrr, mFRR
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\paragraph{Soorten energiemarkten:}
+Forward markt:\begin{itemize}
+    \item Traden weken/maanden-/jaren op voorhand 
+    \item Verhandeling basislast via ICE (International exchange) \& (European energy exchange)
+\end{itemize}
+Day-Ahead (DA):\begin{itemize}
+    \item Trading gebeurt D-1 vooruit (24h/365d) op uurlijke resolutie voor Belgie 
+    \item Verkoper kwantificeert zijn benodigd portfolio en wat hij nog moet extra aankopen of verkopen.
+    \item Op einde van de day-ahead markt moet de markt in evenwicht zijn
+    \item Deelnemers kunnen tot 12 uur s'middags hun orders indienen
+    \item Eeerste negatieve prijs ontstaan in 2008 Duitsland door hernieuwbare productie
+\end{itemize}
+Intra-day market (ID):\begin{itemize}
+    \item Er kunnen grote verschillen verschillen op day ahead niveau en realiteit (verkeerde zonne- of windvoorspelling).
+    \item Intraday verhandelt elektriciteit op de leveringsdag tot 1 uur voor het leveren.
+    \item Trading gebeurt continue op uurlijkse \& 15-minuten resolutie.
+\end{itemize}
+Onbalans markt:\begin{itemize}
+    \item Behandelt onevenwichten in de portefeuille van de intraday markt:\begin{itemize}
+        \item Deelname mogelijk als netgebruiker meer dan 1MW flexibel vermogen heeft, rechtstreeks via ELIA.
+        \item Indien netgebruiker minder dan 1MW flexibel vermogen heeft, kan men enkel deelnemen via BSP (= balance service provider).
+    \end{itemize}
+\end{itemize}
+Bij Forward markt zal je nooit negatieve prijzen hebben maar bij Day-Ahead markt kan je wel met negatieve prijzen zitten. Maar zelf op de day-ahead markt zullen de prijzen meestal niet negatief zijn.
+\paragraph{Day ahead markt versus onbalansmarkt:}\begin{itemize}
+    \item Is day ahead de verdienmarkt of is er nog meer?\begin{itemize}
+        \item 2008 was economische crisis 
+        \item Meer variaties, maar gemiddelde prijzen blijven gelijklopend 
+        \item Steeds meer negatieve prijzen door hernieuwebare 
+        \item Positieve uitschieters waren vroeger ook al aanwezig
+    \end{itemize}
+\end{itemize}
+Slim inspelen op energieprijs kan leiden tot mooie winsten.
+\paragraph{Inspelen op de energiemarkten:}
+BRP versus BSP:\begin{itemize}
+    \item Beide termen hebben betrekken op de rol die een organisatie heeft in de energiemarkt
+    \item BRP(=Balance repsonsible party) is verantwoordelijk voor het in evenwicht houden van zijn eigen verbruik/productie en handel in elektriciteit.\begin{itemize}
+        \item BRP moet informeren over de verwachte productie, verbruik en de handel in elektriciteit om de balans in het netwerk te kunnen realiseren.
+    \end{itemize}
+    \item BSP (= Balance Service Provider) biedt balanceringsdiensten aan.\begin{itemize}
+        \item Leveren van reservevermogen (capaciteitsdiensten) of afnemen onbalansvermogen van BRP's.
+        \item Ze kunnen ook elektriciteit verhandelen, maar zijn niet verantwoordelijk voor de balancering van het net.
+    \end{itemize}
+\end{itemize}
+BRP:\begin{itemize}
+    \item YUSO
+    \item Smart@energy (spin off Elindus)
+    \item Scholt energy control NV
+    \item Luminus
+\end{itemize}
+BSP:\begin{itemize}
+    \item YUSO 
+    \item Centrica 
+    \item Luminus 
+    \item Next Kraftwerke
+\end{itemize}
+\subsubsection{Capaciteitsdiensten:}
+FCR (Frequency containment restoration:)\begin{itemize}
+    \item Primaire reserve of R1
+    \item Balans tussen vraag \& aanbod in een intergeconnecteerde zone te bewaren 
+    \item Wekelijkse veilingen, op termijn mogelijkse evolutie naar dagelijkse veilingen 
+    \item Minimumvermogen minstens 1MW, Geleverd binnen de 30 sec (aggregatie is toegelaten)
+\end{itemize}
+FCR's zijn volgeladen systemen die real time kunnen geactiveerd worden als er problemen zijn op ons net.\newline
+aFRR (Automatic frequency resotration Reserve):\begin{itemize}
+    \item Secundaire reserve of R2 
+    \item R2 zal de taken van R1 trachten over te nemen zodanig R1 terug vrijkomt voor 'nieuwe' frequentie afwijkingen 
+    \item Brengt frequentie terug naar 50Hz
+    \item Moet aangeleverd worden binnen de 7.5 min en dit zolang als nodig aanbieden
+    \item Minimumvermogen minstens 1MW (vroeger geen aggregatie mogelijk).
+\end{itemize}
+mFRR (Manual Frequency Restoration Reserve)\begin{itemize}
+    \item Tertiare reserve of R3 
+    \item idem als aFRR, met name ontlasten van 'R2'
+    \item Manueel inschakelen 
+    \item Vlakkere hellingsgraad \& langere activatieperiode
+\end{itemize}
+\section{Week 3:}
+\subsection{Hernieuwbare energiebronnen:}
+EU targets 2030:\begin{itemize}
+    \item CO$_2$ reductie van 40-55\% (tov 1990)
+    \item Energie efficientie:
+    \item[]$\hookrightarrow$ Belgie heeft dit vertaald in het Nationaal Energy \& Klimaat Plan (NEKP). Verwachtingen dat de doelstelling 2020 voor hernieuwbare energie in Belgie pas bereikt zal worden in 2025.
+    \begin{itemize}
+        \item ten minste 11.7\%
+    \end{itemize}
+    
+    \item Hernieuwbare energie:\begin{itemize}
+        \item ten minste 23\%
+    \end{itemize}
+\end{itemize}
+Eu target 2050 $\rightarrow$ Klimaatneutraal.\newline
+Geinstalleerd vermogen != werkelijk vermogen. In belgie is water,zon en wind energie meer dan 50\% van ons geinstalleerd vermogen maar in de praktijk zijn de niet hernieuwbare bronnen nog altijd de meerderheid van ons werkelijk vermogen.
+\textbf{Oefening:}
+Hoeveel keer kan de wereldwije zonneproductie in het verbruik van belgie:
+Zon=1.418.97 GW$_{piek}$ en we gaan er van uit dat in Belgie 1kW$_{piek}$=1MWh. dus we kunnen er van uit gaan dat de zon=1418TWh. In belgie hebben we een jaarlijks verbruik van 75TWh. 1418/75=18.91. Dus met de opgewekte zonnenergie van de hele wereld kunnen we 18.91 keer het belgisch net onderhouden.
+\begin{itemize}
+    \item Zon en windenergie zijn wereldwijd herkend als competitieve en betrouwbare bronnen van energie.
+    \item Op vandaag is de kost van elektriciteit afkomstig uit hernieuwbare goedkoper of binnen dezelfde range als deze van fossiele brandstoffen.
+\end{itemize}
+\subsubsection{Begrippen \& definities:}
+Capaciteitsfactor/utiliteitsfactor:\begin{itemize}
+    \item Verhouding effectief geproduceerde elektriciteit en de maximaal mogelijke opbrengst in dezelfde periode indien de productie-eenheid op haar nominale capaciteit zou werken.
+    \item Hernieuwbare energie heeft een lage capaciteitsfactor. er moet voor zelfde opbrengst als kerncentrales te hebben 8x meer geinstalleerd vermogen voor zonneproductie zijn.
+\end{itemize}
+In de lente en de zomer kan je rond de 20kWh opbrengst verwachten terwijl verbruik gemiddeld rond de 10kWh is. In de winter zal uw opbrengst natuurlijk veel lager zijn van zonnenergie.
+\paragraph{kW versus kWh}
+\begin{itemize}
+    \item De gebruiker kan gedurende langere tijd een constant vermogen verbruiken:\begin{itemize}
+        \item vb. 1kW voor 1u=1kWh
+    \end{itemize}
+    \item de gebruiker kan gedurende korte periode pieken onttrekken:\begin{itemize}
+        \item vb 20kW voor 3 minuten=1Kwh
+    \end{itemize}
+\end{itemize}
+\paragraph{Capaciteitsfactor/utiliteitsfactor}
+Verhouding effectief geproduceerde elektriciteit en de maximaal mogelijke opbrengst in dezelfde periode indien de productie-eenheid op haar nominale capaciteit zou werken.\begin{itemize}
+    \item Hernieuwbare energie wordt gekenmerkt door een lage capaciteitsfactor:
+\end{itemize}
+\subparagraph{oefening}
+laten we zeggen we hebben een verbruik van 3.5 MWh en we hebben zonnepanelen die 500W vermogen hebben.
+hoeveel zonnepanelen moeten we hebben om ongeveer zelfde verbruik als opbrengst te hebben. we weten dat 1kWp=1MWh. 500W$_{piek}$=500kWh=0.5MWh. $\rightarrow$ $\frac{3.5MWh}{0.5MWh}$=7 dus we we moeten ongeveer 7 panelen hebben.
+\subsubsection{Zonne-energie:}
+Fotovoltaïsch is afgeleid van het Griekse woord 'Phos' (= licht) en het woord 'volt' dewelke een
+internationale eenheid is van elektrische spanning.\begin{itemize}
+    \item Het verkrijgen van elektrische spanning door zonlicht (= Foto elektrische effect)
+    \item Eerste zonnecellen geintroduceerd in 19de eeuw (efficientie <1\%)
+    \item Typische PV-panelen ('single junction') hebben max. theoretische efficiëntie van 33,16\% (Schokley-Queisser limit)
+    \item Verhoging van rendement door 'multi layer' PV-panelen (Labocontities al >45\% rendement)
+\end{itemize}
+Hedendaagse zonnecellen bereiken een rendement van 20\%. In praktijk worden multi layer zonnepanelen nog niet gebruikt zit nog vooral in de onderzoeksfase.
+\paragraph{Overzicht PV installatie:}
+De jaaropbrengst van een PV-installatie wordt bepaald door een complex geheel van factoren zoals:\begin{itemize}
+    \item Eigenschappen van de PV-cellen/modules 
+    \item invertor 
+    \item bekabeling
+    \item zonne-instraling 
+    \item temperatuur van de modules 
+    \item hellingsgraad
+    \item orientatie 
+    \item \dots
+\end{itemize}
+Zonnepanelen wekken DC spanning op dus moeten omgevormd worden om thuis te gebruiken. hiervoor gebruiken we een omvormer (PV-invertor). Zonnepanelen sluiten we in DC met elkaar aan want een zonnepaneel trekt niet 230V in (oude panneel die in labo staat was 30V DC) dus gemakkelijker voor meerdere aan elkaar te verbinden zodat we rondt de 230V zitten.
+\begin{itemize}
+    \item Silicium is een veelgebruikt halfgeleidermateriaal voor PV-installaties:\begin{itemize}
+        \item Silicium heeft 4 elektronen in de buitenste schil:\begin{itemize}
+            \item Deze vormen een perfecte covalente verbinding met de omliggende siliciumatomen:\begin{itemize}
+                \item Geen vrije elektronen in het kristal,dus silicium geleidt niet
+                \item Kristal moet gedopeerd worden om te geleiden:2 types onzuiverheden kunnen toegevoegd worden, P- \& N-type onzuiverheden
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\subparagraph{PN-Junctie:}\begin{itemize}
+    \item P- en N-junctie zijn individueel niet speciaal, het zijn slechts matige
+    geleiders
+    \item Fotonen worden geabsorbeerd bij lichtinval op de junctie 
+    \item Er wordt een elektron-gat paar gegeneerd:\begin{itemize}
+        \item Dicht bij de P-N overgang?
+        \item Elektron zal naar de N-laag verplaatsen en gaten naar de P-laag
+        \item Hierdoor ontstaan nieuwe gaten en kunnen elektronen zich
+        verplaatsen en kan een elektrische stroom vloeien.
+        \item Bij voldoende lichtinval wordt een spanning opgewekt van 0,4 à
+        0,5V -> door het in serie plaatsen kunnen hogere spanning
+        verkregen worden
+    \end{itemize}
+\end{itemize}
+\subparagraph{Golflengte Licht-Spectrum:} 
+Hoe korter de golflengte, hoe meer energie-inhoud:
+\begin{itemize}
+    \item[] Golflengte van het lich die een standard silicium paneel kan bemutten is eerder beperkt... 
+    \item Het grootste deel van het infraroodlicht kan geen elektriciteit opwekken in de zonnecel bij silicium panelen mits deze niet gevoelig zijn voor deze golflengte (golflengte gaat dwars door paneel en zal dus zorgen voor warmte-ontwikkeling).
+    \item Blauw \& groen maken meer lading vrij dan geel en rood:\begin{itemize}
+        \item Vandaar ook het verschil in dikte tussen de P- en N-laag.
+        \item Blauw licht moet zo dicht mogelijk bij de PN-overgang
+    \end{itemize}
+\end{itemize}
+Voor berekening rond PV-installaties wordt het AM 1.5 spectrum gebruikt.
+\begin{itemize}
+    \item Het geïnstalleerd vermogen (kWp) van een zonnepaneel
+    onder standaard condities.\begin{itemize}
+        \item Voor West-Europa is het invallend spectrum AM 1.5
+        genormeerd op 1000W/m² met een celtemperatuur van
+        25°C
+        \item In gebieden rond evenaar zal dit hoger zijn.
+    \end{itemize}
+\end{itemize}
+Slechts deel van het spectrum bruikbaar voor de veelgebruikte silicium panelen.
+\subparagraph{IV \& PV-curve:}
+\begin{itemize}
+    \item Grafische weergave die aantonen hoe een elektrische apparaat functioneert.
+    \item Belangrijkste eigenschappen kunnen afgeleid worden 
+    \item IEC 60891 geeft correcte bepaling IV-curve weer
+\end{itemize}
+De vorm van de IV-curve vertelt meer over de kwaliteit/performantie van de PV-panelen.
+\begin{itemize}
+    \item ISC:\begin{itemize}
+        \item Max stroom (kortsluitstroom)
+        \item Impedantie=0, geen spanning 
+    \end{itemize}
+    \item Uoc:\begin{itemize}
+        \item Max. spanning (open circuit spanning)
+        \item impedantie=$\infty$, geen stroom
+    \end{itemize}
+    \item Maximum power point (MPP):\begin{itemize}
+        \item Optimaal werkingspunt 
+        \item maximum vermogensopwekking
+    \end{itemize}
+    \item Vulfactor:\begin{itemize}
+        \item Ratio van actueel maximaal verkrijgbaar vermogen 
+        \item Maat voor de efficientie van een PV module
+    \end{itemize}
+\end{itemize}
+Instraling:\begin{itemize}
+    \item Max. stroom/vermogen stijgt met stijgende instraling
+    \item Max spanning wijzigt amper met stijgende instraling 
+    \item Panelen met glaslaag ondervinden degradatie van 0.5\% na een halfjaar en na 1.5 jaar is max. degradatie van 1,5\% bereikt.
+\end{itemize}
+Temperatuur:\begin{itemize}
+    \item geleidbaarheid van halfgeleiders stijgt bij stijgende temperatuur 
+    \item Elektrische balans verbetert en opbrengst daalt (elektronen vullen gaten gemakkelijker in en het elektrische veld aan grenslaag valt weg wat resulteert in lager spanning tussen de 2 lagen).
+    \item Hoe hoger de temperatuur, hoe hoger de stroom en hoe lager de spanning.
+    \item $\rightarrow$ Vermogensval door temperatuurstijging.
+    \item Dus koude lenterdag is vaak beter dan warme zomerdag. zomer heeft wel meer zonneuren. Maar als lente even veel zonneuren zou hebben zou lente sws interessanter zijn.
+\end{itemize}
+Schaduw of vervuiling:\begin{itemize}
+    \item Zonnecellen worden in serie geschakeld, als 1 cel neit belicht wordt, opbrengstverlies doordat opbrengst bepaald wordt doo zwakste schakel (opl = bypass diodes,...)
+    \item De spanning zal slechts weinig dalen terwijl de stroom serieus daalt.
+    \item Opzich hoef je nie uw zonnepanelen niet zo veel te poetsen grootste probleem is mos. Daarom is het interesanter om uw zonnepannelen niet plat te leggen want mos begint vanonder.
+    \item Schaduw blijft wel een probleem.
+    \item Wel oppassen hoe je uw pannelen kuist want is met een glaslaag dus er voor zorgen dat je er geen krassen in trekt.
+\end{itemize}
+Technologieen:\begin{itemize}
+    \item Kristallijne panelen:\begin{itemize}
+        \item Monokristallijn 
+        \item Polykristallijn
+    \end{itemize}
+    \item Dunne film panelen:\begin{itemize}
+        \item Amorf silicium {a-Si}
+        \item Copper Indium Gallium Selenide
+        (CIGS)
+        \item \dots 
+    \end{itemize}
+\end{itemize}
+Normaal kan je verschil tussen mono en poly panelen wel zien.
+\begin{itemize}
+    \item Monokristallijn:\begin{itemize}
+        \item Zeer vaak toegepast, vooral bij opkomst van zonnepanelen
+        \item Gebruik maken van zeer zuiver halfgeleidermateriaal
+        \item Productie via Czochralski proces:\begin{itemize}
+            \item Smelten zuiver silicium 
+            \item Opnieuw vormen door een monokristallijn zaadje in de melt te brengen 
+            \item Silicium neemt patroon aan van het kristal, terwijl het stolt
+        \end{itemize}
+        \item Staaf verzagen in schijven typisch 200 a 400$\mu$m dik zijn:\begin{itemize}
+            \item Verlies van 20\%
+        \end{itemize}
+        \item Hoge celrendementen, maar zegt niks over efficiëntie van paneel
+        \item Dure methode, maar gelijkmatige structuur van panelen:\begin{itemize}
+            \item Esthetischer mooier dan polykristallijn
+            \item Cellen produceren hoger vermogen per m²:\begin{itemize}
+                \item Ideaal voor kleinere daken                
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    \item Polykristalijn:\begin{itemize}
+        \item Goedkopere methode dan productie van monokristallijne cellen:\begin{itemize}
+            \item Vloeibaar silicium in blokken gegoten
+            \item Resulteert in een vierkante blok die op zijn beurt in schijven wordt verzaagd
+            \item Bij stollen van het materiaal vormen kristalstructuren van verschillende grootte\begin{itemize}
+                \item Op grensvlakken treden defecten op, daardoor rendement iets lager dan monokristallijn
+            \end{itemize}
+            \item Voordeel, er kunnen rechthoekige zonnecellen gemaakt worden:\begin{itemize}
+                \item Betere benutting van het paneeloppervlak, compenseert rendementsverlies
+            \end{itemize}
+            \item Herkenbaar aan blauwe kleur en schakeringen in het paneel
+            \item Opbrengst per geïnstalleerde wattpiek verschilt zeer weinig ivm monokristallijn
+            \item Als oppervlakte geen rol speelt, opteren voor goedkopere polykristallijn panelen
+        \end{itemize}
+    \end{itemize}
+    \item Dunne film:\begin{itemize}
+        \item Als op glas of een ander substraatmateriaal een fotovoltaïsche actieve laag wordt afgeze
+        \item Laagdiktes bedragen minder dan 1 $\mu$m (dikte menselijk haar = 50 – 100 $\mu$m)
+        \item Verschillende types:\begin{itemize}
+            \item Amorf silicium 
+            \item Copper Indium Gallium Selenide
+            \item Cadmium Telluride
+            \item CIGS ( Copper, Indium, Gallium, Selenide panelen)* (Buitenbeentje -Nieuw soort dunne film technologie)
+        \end{itemize}
+        \item Voordelen:\begin{itemize}
+            \item Eenvoudiger te produceren
+            \item Productiekosten lager door lagere materiaalkosten
+        \end{itemize}
+        \item Nadelen:\begin{itemize}
+            \item Meeste hebben lager rendement 
+            \item Vooral nog toekomstgericht
+        \end{itemize}
+        \item CIGS panelen toekomst:\begin{itemize}
+            \item Laborendement 20\%
+            \item Beter dan amorfe panelen            
+        \end{itemize}
+    \end{itemize}
+    %slide 21 geeft tabel met rendement,prijs,...
+\end{itemize}
+All-in kostprijs PV-installatie=1,3€/WP
+\subparagraph{Toekomst:}
+\begin{itemize}
+    \item Zonneramen:\begin{itemize}
+        \item Organische zonnecellen (OPV) samengesteld uit zeer kleine cellen.
+        \item OPV cellen zijn de 3de generatie zonnetechnologie
+    \end{itemize}
+    \begin{enumerate}
+        \item Optimalisatie van de huidige zonnecellen:\begin{itemize}
+            \item Een zonnecel is ingeklemd tussen metalen contacten (contactvingers), dit glanzende metaal reflecteert het zonlicht weg van de richting van de halfgeleider
+            \item Wetenschappers van de Stanford Universiteit kunnen de bovenste
+            reflecterende contactvingers onzichtbaar maken.
+        \end{itemize}
+        \item Verdere ontwikkeling van huidige PV-cellen:\begin{itemize}
+            \item Multi layer PV-panelen bereiken efficiëntie van meer dan 40 %
+        \end{itemize}
+    \end{enumerate}
+\end{itemize}
+\subparagraph{PV-invertor:}
+\begin{itemize}
+    \item[] Voorzien in diverse functies:\begin{itemize}
+        \item Omzetten DC-vermogen $\rightarrow$ AC-vermogen
+        \item Geïntegreerd scheidingssysteem (volgens synergrid C10/11 - C10/26)
+        \item Maximum power point tracking (MPPT):\begin{itemize}
+            \item Zoeken naar optimaal werkingspunt voor verschillende instralingen
+        \end{itemize}
+        \item levensduur van 10 a 15 jaar
+    \end{itemize}
+    \item[] Verschillende topologieen:\begin{itemize}
+        \item Centrale invertor
+        \item String invertor:\begin{itemize}
+            \item Individuele MPPT per string
+        \end{itemize}
+        \item MIC (Module integrated converter):\begin{itemize}
+            \item Toegepast bij schaduwrijke gebieden
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\subparagraph{AC-vorming:}
+\begin{itemize}
+    \item[] Zelf-commuterende omvormers (meest toegepast):\begin{itemize}
+        \item Genereren zelf een sinusoidale uitgang:\begin{itemize}
+            \item Hysteresis:\begin{itemize}
+                \item Uitgang wordt zo geschakeld dat de uitgangsstroom binnen zeker grenzen overeenkomt met het aangelegede referentie-signaal.
+            \end{itemize}
+            \item Pulsbreedtemodulatie (=PBM)\begin{itemize}
+                \item Meest toegepaste techniek
+                \item Door het varieren van de breedte van de pulsen ontstaat een sinusvormige stroom: Referentiesignaal vergelijken met een draaggolf
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\subparagraph{Maximum power point tracking (MPP):}
+\begin{itemize}
+    \item[] PV-systeem moet bij maximale vermogensoverdracht werken 
+    \item[] Het maximum power point is het werkingspunt waar de meeste energie wordt geleverd:\begin{itemize}
+        \item Zonnepanelen zijn afhankelijk van stralingsniveau,temperatuur \& schaduw 
+        \item Al naargelang de externe invloeden veranderen de coördinaten van dit punt
+        \item Methode om dit het optimaal werkingspunt te bereiken is vb. 'Perturb \& observe method'
+    \end{itemize}
+\end{itemize}
+\subparagraph{Rendement:}
+\begin{itemize}
+    \item Invertoren worden gekenmerkt door een omzettingrendement die varieert met
+    het werkingspunt
+    \item Fabrikanten geven verschillende rendementen mee:\begin{itemize}
+        \item Max. efficiëntie versus Europese efficiëntie
+        \item EU-efficiëntie is een gewogen gemiddelde van rendementen met verschillende instralingsniveaus
+    \end{itemize}
+\end{itemize}
+Invertor-efficiëntie t.o.v zonneschijndistributie:\begin{itemize}
+    \item Omvormer werkt voor een groot deel van de tijd aan een laag rendement 
+    \item Oplossing kan zijn om de omvormer te onderdimensioneren:\begin{itemize}
+        \item bij een zuid gerichte orientatie mag je 10\% onderdimensioneren en bij orientatie die tussen 2 (noord-oost/zuid-west) zat mag je zelf 20 tot 30\% onderdimensioneren.
+    \end{itemize}
+    \item vroeger werd er veel geonderdimensioneerd omdat ze vroeger keken naar uw kVA voor de kosten maar is nu niet meer interessant zeker niet met de digitale meters. Onderdimensioneren blijft wel nog altijd interessant.
+\end{itemize}
+\subparagraph{Opbrengstbepaling van een PV-installatie:}
+\begin{itemize}
+    \item Optimale hellingshoek is afhankelijk van waar het systeem geplaatst wordt:\begin{itemize}
+        \item PV-installatie aan evenaar zal vlakker geplaatst mogen worden dan in België
+        \item Optimale hellingshoek kan bepaald worden via instralingsdiagram:\begin{itemize}
+            \item Optimale hellingsgraad in Belgie:\begin{itemize}
+                \item als je noordgericht bent liefst zo plat mogelijk 
+                \item Zuidgericht 35 graden ongeveer
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item Een zonnepaneel met vaste oriëntatie vangt voortdurend andere
+    energiedichtheden daar de zon continue van positie wijzigt
+    Gemiddeld hebben zonnepanelen een capaciteitsfactor van 10\%, wat neerkomt op een kleine 900 vollasturen op jaarbasis voor België.
+    \item Opbrengst van een PV-installatie bedraagt op vandaag tussen de
+    850 à 1000 kWh/kWp
+\end{itemize}
+\subparagraph{invloed van oriëntatie}
+\begin{itemize}
+    \item De invloed van de oriëntatie kon eerder al afgeleid worden uit het instralingsdiagram\begin{itemize}
+        \item Afwijken van Zuidgerichte installatie leidt tot lagere opbrengst per kWh geïnstalleerd vermogen:\begin{itemize}
+            \item Opgelet, toch voordelen aan niet zuidelijk gerichte installatie:\begin{itemize}
+                \item Verschuiven van middagpiek
+                \item Afhankelijk van eigenaars of werknemers, betere gelijktijdigheid van profielen
+                \item Betere bodembedekkingsfactor (= optimalisatie dakbenuttiging): Meer kWp geinstalleerd vermogen op hetzelfde oppervlak.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+Dak benuttiging:\begin{itemize}
+    \item Zuiden: 43.5\%
+    \item O/W: 76\%
+\end{itemize}
+Westelijke orientatie grotere seizoensafhankelijkheid:\begin{itemize}
+    \item Te veel energie in de zomer $\rightarrow$ slechtere zc 
+    \item Te weinig energie in de winter $\rightarrow$ slechtere zv
+\end{itemize}
+\subparagraph{Analyse jaarprofiel:}
+\begin{itemize}
+    \item Tot op heden beoogt men veelal om productie gelijk te stellen aan het totaal jaarlijks verbruik.
+    \item Na analyse uit standaard zonneprofiel kan afgeleid worden dat opwekking PV-installatie hoofdzakelijk plaatsvind in de zomer en lente.
+    \item Veel injectie in net.
+\end{itemize}
+\subparagraph{Werkelijke profielen:}
+Plat dak is beter dan hellend dak voor zonnepanelen omdat de achterkant open is van uw zonnepanelen op een plat dak waardoor uw pannelen kunnen afkoelen. Bij een hellend dak zit de warmte van uw pannelen vast waardoor je een iets slechter resultaat zal hebben.
+\subsubsection{Wind energie:}
+\begin{itemize}
+    \item Wind energie heeft haar ontstaan te danken aan de zon\begin{itemize}
+        \item Zonnestralen warmen de aardbol op en plaatselijk stijgt de warme lucht
+    \end{itemize}
+    \item Windmolens zijn geen nieuwe technologie\begin{itemize}
+        \item Vroeger voornamelijk toepassingen voor verpompen van water en het malen van granen.
+        \item in 1895 - Deen Poul la Cour voorzag een dorp van stroom via windturbine
+        \item Grote interesse in opwekken elektriciteit via windturbine in 2de helft van 20ste eeuw door oliecrisis (prijs fossiele brandstoffen)
+        \item Windmolen != windturbine
+    \end{itemize}
+\end{itemize}
+Belgie: 5.439.2 MWp is ongeveer de helft van geinstalleerd MWp voor zon.\newline
+Fundering
+\begin{itemize}
+    \item Onshore: ondiee betonfundering 
+    \item Offshore 3 types: (Tripod,bucket of monopile) + onderzoek naar floating types
+\end{itemize}
+Mast:\begin{itemize}
+    \item Hoe hoger de mast, hoe breder de voet:\begin{itemize}
+        \item 1980: 30m hoog 30 kW 
+        \item 2024: 250m hoog 14 MW\begin{itemize}
+            \item Op zee: vermogen tot 14 MW in aanbouw (Nederland,Denemarken)
+            \item Op land: nieuwste generatie heeft vermogen van 5 tot 7 MW 
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+Gondel:\begin{itemize}
+    \item Generator (direct drive versus tandwielkast)
+\end{itemize}
+Wieken:\begin{itemize}
+    \item Composietmateriaal van polyester \& polyurethaan 
+    \item Bij detectie van scheurtjes moeten wieken vervangen worden 
+    \item Levensduur van 15 a 20 jaar
+\end{itemize}
+Vermogen uit wind:\begin{itemize}
+    \item P$_{wind}=\frac{1}{2}x\Phi x v^3xA$
+\end{itemize}
+\paragraph{Oefening vermogen van wind:}
+\begin{itemize}
+    \item Scenario 1: Bereken hoeveel energie er kan geproduceerd worden indien er 100 uur een windsnelheid van 6m/s bereikt wordt voor een oppervlakte van 1m². De luchtdichtheid is 1,255 kg/m³:\begin{itemize}
+        \item Energie bij 100 uur bij 6 m/s in 1m²:\begin{itemize}
+            \item 0.5 x 1,225 x 1 x 6³ x 100 = 13,230 kWh
+    \end{itemize}
+    \item Bereken hoeveel energie er kan geproduceerd worden indien gedurende 50 uur een windsnelheid van 3m/s gehaald wordt en voor 50 uur 9m/s. De luchtdichtheid is 1,255 kg/m³:\begin{itemize}
+        \item Energie bij 50 uur bij 3 m/s in 1m² en 50 uur bij 9 m/s:\begin{itemize}
+            \item 0.5 x 1,225 x 1 x 3³ x 50 = 0,827 kWh
+            \item 0.5 x 1,225 x 1 x 9³ x 50 = 22,326 kWh
+        \end{itemize}
+    \end{itemize}
+    \end{itemize}
+\end{itemize}
+Snelheid is belangrijk voor dit want in de formule kan je zien dat snelheid tot de derde macht wordt gedaan.
+\paragraph{Vermogen van wind kan niet volledig worden benut:}
+\begin{itemize}
+    \item Bepalen werkelijk potentieel via de vermogen coëfficiënt (Cp)
+    \item In 1919 bewees Albert Betz dat voor een ideale windturbine de fundamentele wetten van behoud van massa en energie het niet
+    toelieten om een vermogen coëfficiënt groter dan 16/27 (=59\%) van de kinetische energie op te vangen (geldig voor alle conventionele windmolens)\begin{itemize}
+        \item Enerzijds zal een gedeelte van de wind om de windturbine heen geleid worden 
+        \item Anderzijds zal de snelheid van de wind achter de windturbine niet gelijk zijn aan 0
+        \item In werkelijkheid wordt ook het theoretisch optimum niet
+        behaald. Dit wordt beïnvloed door de:\begin{itemize}
+            \item Windsnelheid
+            \item type rotor
+            \item Tip speed ratio (verhouding tipsnelheid ten opzichte van
+            windsnelheid)
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\paragraph{Types turbines:}
+2 soorten:\begin{itemize}
+    \item Horizontale as windturbine (=meest gebruikte technologie bij grote windmolens) HAT 
+    \item Verticale as windturbine (= veelal gebruikt voor kleinere windturbines) VAT
+\end{itemize}
+Snellopendheid ($\lambda$) ifv vermogenscoëfficient (= Cp):\begin{itemize}
+    \item Snellopendheid is de verhouding tussen de omtreksnelheid van een tip
+    (= snelheid van de vleugeltip) ten opzichte van de windsnelheid. Hoe hoger de puntsnelheid bij een bepaalde windsnelheid, hoe hoger de efficiëntie:\begin{itemize}
+        \item Lage snellopendheid = veelbladig type
+        windturbine:\begin{itemize}
+            \item Max. Cp bij lagere snellopendheid
+            \item Hoog koppel bij een laag toerental
+        \end{itemize}
+        \item Hoge snellopendheid:\begin{itemize}
+            \item Laag koppel bij een hoger toerental
+            \item Geschikt voor het produceren van elektriciteit            
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\subparagraph{Horizontale as windturbine (= HAT):}
+\begin{itemize}
+    \item As van de rotor staat parallel met het grondoppervlak en wieken loodrecht op de bewegingsrichting van de wind 
+    \item Kunnen van het type upwind of downwind zijn\begin{itemize}
+        \item Downwind:\begin{itemize}
+            \item Wiek bevind zich in de schaduw van de mast bij omwenteling
+            \item Ontwikkelde koppel van de wiek wordt op dit moment bijna 0, leidt tot een pulserend koppel en vermogensdalin
+        \end{itemize}
+        Upwind (= meest gekozen type):\begin{itemize}
+            \item Rotoren staan met hun kop in de wind en verwezenlijken constanter koppel
+        \end{itemize}
+    \end{itemize}
+    \item Meest toegepaste vorm is de axiale turbine met 3 wieken:\begin{itemize}
+        \item Goed ontwerp en correcte rotatiesnelheid kan tot 80\% van Betz-limiet halen
+        \item Wordt als rustiger ervaren dan een tweewieker (snelheid)
+        \item Lagere geluidsproductie tov tweewieker (door lagere tipsnelheid)
+        \item Duurder dan een tweewieker, dewelke een eenvoudiger ontwerp heeft
+        \item Nog steeds onderzoek naar tweewiekers voor off shore toepassingen
+        \item HAT heeft hogere uitbatings- en onderhoudskost
+        \item Yaw control vereist voor de turbine in de wind te plaatsen
+        \item Slagschaduw
+    \end{itemize}
+\end{itemize}
+\subparagraph{Verticale as windturbine (VAT):}
+\begin{itemize}
+    \item Toepassingsgebied voornamelijk bij kleine windturbines in bebouwde omgeving
+    \item Rotorbladen zijn niet afhankelijk van de windrichting, ontwerp zorgt ervoor dat wind altijd gevangen wordt en er dus geen nood is aan een 'yaw control' mechanisme
+    \item Verticale as windturbines zijn afgeleid van de Savonius (=weerstandsprincipe) of Darrieus (= liftprincipe) rotor\begin{itemize}
+        \item Weerstand gebaseerde windturbine:\begin{itemize}
+            \item Kunnen niet sneller draaien dan de wind (=max. snellopendheid van 1)
+            \item Meestal gebruikt voor toepassingen waar een hoog koppel verwacht wordt (verpompen water)
+            \item Luchtweerstand aan beide zijden van de turbine, dus ook een negatief gegeneerd koppeld:\begin{itemize}
+                \item Totaal gegenereerd koppel is de som van de beide bladen
+            \end{itemize}
+            \item Wordt laag bij de grond geplaatst, de windsnelheid is hier lager
+            \item Typisch hedendaags gebruikt als anenometer
+        \end{itemize}
+        \item Liftprincipe gebaseerde windturbine:\begin{itemize}
+            \item Veel hogere snellopendheid dan weerstandsprincipe
+            \item Rendement nadert deze van HAT
+            \item Bruikbaar voor productie van elektriciteit
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\paragraph{Type generatoren/ MPP regeling:}
+Generatoren niet vanbuiten kennen maar wel principe verstaan van grafiek rechtsonder slide 43.
+\paragraph{Windprofiel:}
+\begin{itemize}
+    \item Vermogenscurve:\begin{itemize}
+        \item Deze curve toon elektrisch vermogen opgewekt voor een welbepaalde turbine bij verschillende windsnelheden:\begin{enumerate}
+            \item Windturbine heeft een minimale windsnelheid (= cut-in speed) nodig om rendabel te kunnen functioneren (3-5 m/s)
+            \item Bij hogere windsnelheden neemt het vermogen dat uit de wind gehaald wordt toe met de 3de macht van de windsnelheid.\begin{itemize}
+                \item Hiervoor wordt de optimale tipsnelheidsverhouding gebruikt om het maximaal vermogen te verkrijgen bij een bepaalde windsnelheid
+            \end{itemize}
+            \item Bij hogere windsnelheden zal het vermogen niet verder oplopen:\begin{itemize}
+                \item Nominale rotorsnelheid en vermogen worden gehandhaafd door de wieken te regelen
+            \end{itemize}
+            \item Boven een bepaalde windsnelheid (= cut-out speed) is het gevaar voor beschadiging te groot en wordt de windturbine gedeactiveerd
+        \end{enumerate}
+    \end{itemize}
+    \item Vermogen moet voor ieder punt zo optimaal mogelijk werken:\begin{itemize}
+        \item Mogelijke controlestrategieën:\begin{itemize}
+            \item Stall control (overtrekregeling):\begin{itemize}
+                \item Bij passieve stall controle worden de wieken onder een vaste hoek gemonteerd
+                \item Profiel van de rotorbladen is op die manier ontworpen dat gebruik gemaakt wordt van de aerodynamische vormgeving/eigenschappen van de wiek
+                \item Bij hogere windsnelheid zal de omtreksnelheid van de wieken gelijk blijven en zal de wind meer van onderen van het wiekprofiel komen:
+                \item[] Verminderde liftkracht en loslatende stroming (ontstaan turbulentie)
+                \item[] Niet-gecontroleerde regeling met daling van de rotorefficiëntie bij hogere windsnelheden als gevolg.
+            \end{itemize}
+            \item Pitch control (= bladhoekverstelling)\begin{itemize}
+                \item Bij deze regeling wijzigt de hoek tussen het rotorblad en de windrichting via een elektronisch regelcircuit op basis van de gemeten windsnelheid
+                \item Wieken worden zo gericht ten opzichte van de aanstromende wind, dat steeds de maximale liftkracht kan ontstaan en een constante snellopendheid kan behouden blijven:
+                \item[] Door de wendbare wieken kan deze bij lage windsnelheden loodrecht op de windrichting geplaatst worden (= weerstandsprincipe) om te starten
+                \item[] Bij voldoende hoge snelheid veranderd de controlestrategie om het liftprincipe te kunnen toepassen
+                \item[] Eénmaal het nominaal vermogen bereikt zal bij stijgende windsnelheden een minder efficiëntebladhoek (lagere lift) ingesteld worden om de rotorsnelheid en het uitgaand vermogen constant te houden
+            \end{itemize}
+            \item Yaw control\begin{itemize}
+                \item Naast de regelingen van de wieken van de turbines, wordt de turbine ook altijd gericht op de wind
+                \item Bij lage tot gemiddelde windsnelheden is de variatie in windrichting groot, terwijl bij grote windsnelheden deze eerder beperkt is
+                \item Yaw control zorgt ervoor dat de gondel altijd gericht is op de wind om maximale vermogensopwekking mogelijk te maken
+                \item Staat bovenop de toren
+                \item Als windrichting wijzigt wordt het mechanisme ingeschakeld en zal rotor
+                met snelheid van 0,75° per seconde draaien om de rotor terug in de
+                wind te plaatsen
+                \item Er zit ook een bepaalde vertraging in het systeem bij snel wijzigende
+                windrichtingen
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item Opbrengstbepaling van een windturbine\begin{itemize}
+        \item Net zoals zon, heeft ook wind een variabel karakter
+        \item Bepalen van meest geschikte locatie voor het plaatsen van turbines vereist uitgebreid onderzoek
+        \item Hoe groter het doorstroomoppervlak, hoe groter het geproduceerde vermogen ('hoge bomen vangen veel wind')
+    \end{itemize}
+    \item Invloed van hoogte:\begin{itemize}
+        \item Op basis van metingen op verschillende hoogtes kan de windsnelheid voor een bepaalde locatie bepaald worden\begin{itemize}
+            \item Hoe hoger de metingen uitgevoerd, hoe meer de windsnelheid stijgt (Verdwijnen van obstakels zoals gebouwen, bosgebieden... (= ruwheidsfactor))
+        \end{itemize}
+    \end{itemize}
+    \item Opbrengstbepaling van een windturbine
+    \item Invloed van hoogte\begin{itemize}
+        \item Windkaarten geven inzicht voor bepaalde hoogtes in bepaalde gebieden
+        \item Het aantal vollast uren is afhankelijk van de locatie
+    \end{itemize}
+    \item Vollasturen offshore toepassingen: ± 3400 uren
+    \item Vollasturen binnenland: ± 2200 uren
+\end{itemize}
+\paragraph{Windroos:}
+\begin{itemize}
+    \item Visualiseert de gemiddelde windsnelheid en -richting
+    \item Men kan de verwachte energieopbrengst formuleren voor bepaalde locatie
+    \item inzicht creëren in welke mate er een constante windsnelheid is en wat de overheersende windrichting(en) zijn op een bepaalde locatie\begin{itemize}
+        \item Opgelet: overheersende windrichting kan lagere gemiddelde windsnelheid bereiken ten opzichte van andere oriëntaties!!
+        \item Schatting mag niet gebeuren op basis van gemiddelde windsnelheid en vermogenscurve
+    \end{itemize}
+    \item Eénmaal de oriëntatie bepaald werd, kan op basis van de windroos de Weibull-curve uitgezet worden voor verschillende oriëntaties\begin{itemize}
+        \item Aan de hand van deze curve kan afgeleid worden bij welke frequentie welk vermogen wordt behaald
+    \end{itemize}
+\end{itemize}
+\paragraph{Analyse jaarprofiel:}
+\begin{itemize}
+    \item Tot op heden beoogt men veelal om productie gelijk te stellen aan het totaal jaarlijks verbruik
+    \item Na analyse uit standaard windprofiel kan afgeleid worden dat opwekking van windenergie voornamelijk in de winter en herfstmaanden hoog is (omgekeerd evenredig aan zonneproductiecurve)    
+\end{itemize}
+\subsubsection{Evaluatie van profielen:}
+\begin{itemize}
+    \item Data vereist voor dimensionering
+\end{itemize}
+Eigen verbruik voor residentieel gezien is meestal rond de 30\%.\begin{itemize}
+    \item Zelfconsumptie verhouding [Zc]\begin{itemize}
+        \item Maat voor de PV-energie die ongenblikkelijk zelf verbruikt wordt 
+        \item Hoe hoger Zc, hoe hoger het economisch rendement van de hernieuwbare installatie. (mate in wanneer je uw installatie terug verdient hebt).
+        \item Zc=$\frac{energie eigen verbruik}{energie zonne energie}$
+    \end{itemize}
+    \item Zelfvoorzieningsverhouding [Zv]\begin{itemize}
+        \item Maat voor de gevraagde energie die ogenblikkelijk zelf opgewekt wordt 
+        \item Hoe hoger Zv, hoe meer er kan bespaard worden op de energiekosten. (mate voor besparing op energie)
+        \item Zv=$\frac{energie eigen verbruik}{energie totaal verbruik}$
+    \end{itemize}
+    \item Je wil liefst dat uw Zv en Zc zo hoog mogelijk zijn.
+\end{itemize}
+Zelf =consumptie \& zelfvoorziening:\begin{itemize}
+    \item voorbeeld maandprofielen:\begin{itemize}
+        \item verbruik: 10 MWh,opbrengst: 10 MWh 
+        \item Verbruik: 10 MWh, opbrengst: 16 MWh 
+        \item conclusie:\begin{itemize}
+            \item Een kleine stijging van de Zv door het plaatsen van een grotere zonne-installatie is geen economisch optimale situatie
+            \item Max. 1:1 dimensionering is aanbevolen, maar alles is afhankelijk van de tariefstructuur
+            \item Kleinere installaties hebben een kleinere impact voor de netintegratie en zijn zeker financieel interessant
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+uw zelfconsumptie en zelfvoorziening moeten elkaar snijden aan 1. Als dit niet zo is heb je ergens een fout gemaakt. Als we ons eigen verbruik willen optimaliseren moeten we links van dit punt kijken. bij een 1/1 installatie kan je 30\% direct zelfgebruiken de rest injecteer je op het net.
+Weet dat dag van vandaag uw oude dimensionering: opbrengst != aan uw verbruik (zeker niet bij bedrijven). 
+\paragraph{Nieuwe dimensionering:}
+\begin{itemize}
+    \item Algemeen: verbruiker 
+    \item Ieder profiel is uniek
+\end{itemize}
+Dimensionering opbrengst/verbruik:\begin{itemize}
+    \item gemiddelde profielen: +-50\% 
+    \item 'Slechte' profielen +-40\%
+    \item  'Beste' profielen +- 60\%
+\end{itemize}
+Bij residentiele klanten hebben ze geen speciale assets dan mag je van deze cijfers uitgaan.\newline 
+\subparagraph{Dimensioneringen:}
+Oude tarieven:\begin{itemize}
+    \item Afname: €0.20
+    \item Injectie €0.04
+\end{itemize}
+Nieuwe tarieven (tijdens energie crisis):\begin{itemize}
+    \item afname: €0.4
+    \item Injectie: €0.16
+\end{itemize}
+\subsubsection{Vergelijking zon/wind:}
+Wind is vaak beter dan zon want er is meer overlap tussen de blauwe en rode lijn van onze grafiek. Zon is meer seizoensgebonden en is ook enkel overdag. windt scored in 98\% beter dan zon. vb slides: beide evenveel opbrengst als verbruik $\rightarrow$ zon: 39.55\% wind:50.55\%
+\subsubsection{Technologische optimalisatie:}
+Methodiek optimumbepaling Zc \& Zv:\begin{itemize}
+    \item Methode 1: Raaklijnen\begin{itemize}
+        \item Optimalisatie van de zelfvoorziening 
+        \item Optimale capaciteit wordt gedefinieerd als snijpunt van de raaklijn bij geen opslag \& het plateau-niveau
+        \item In voorbeeld slides ligt ons optimaal punt ongeveer op 1.15
+    \end{itemize}
+    \item Methode 2: Afgeleiden Zc \& Zv:\begin{itemize}
+        \item 1ste afgeleide:\begin{itemize}
+            \item Mate van verandering van het eigenverbruik 
+            \item Steilheid eigenverbruik achterhalen
+        \end{itemize}
+        \item 2de afgeleide:\begin{itemize}
+            \item Mate van de verandering van de eerste afgeleide 
+            \item Bij weinig verandering, geen meerwaarde
+        \end{itemize}
+        \item Zones:\begin{itemize}
+            \item groene zoneL optimum bij grootste verandering:\begin{itemize}
+                \item Technologish optimum 
+            \end{itemize}
+            \item Gele zone: variatie voldoende aanwezig:\begin{itemize}
+                \item Stijging, maar minder interessant (verder weg met optimum)
+            \end{itemize}
+            \item Rode zone: bijna geen variatie meer:\begin{itemize}
+                \item Serieuze overdimensionering met weinig meerwaarde (behalve bij volledige onafhankelijkheid).
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\paragraph{Dimensionering:}\begin{itemize}
+    \item Rekenen in abosulte eenheden per unit?
+\end{itemize}
+kWh PU=$\frac{Individuele kWh}{Som(individuele kWh)}$ (PU= per unit). is beter dan alles in kWh uit te drukken want gemakkelijker te vergelijken met andere profielen. via PU rekenen is gemakkelijk en meer overzichtelijk dan alles in kWh te berekenen. achter dat we de PU waarde hebben moeten we het wel terug omrekenen. uw totaal verbruik x uw PU waarde.
+Zc=$\frac{eigen verbruik}{totaal productie}$ Zv=$\frac{Eigen verbruik}{totaal verbruik}$
+\section{week 5:}
+\subsection{Hernieuwbare elektrictieit: wetgevend kader}
+Explotatie - Synergrid C10/11:Specifieke technische voorschriften voor elektriciteitsproductie-installaties die parallel werken met het distributienet\begin{itemize}
+    \item Laatste versie van toepassing sinds 01/11/2019 
+    \item Energie-opslagsystemen worden beschouwd als volwaardige elektriciteitsproductie-eenheden
+    \item kleine productie:\begin{itemize}
+        \item 1F: <= 5kVA
+        \item 3F: <= 10kVA
+    \end{itemize}
+    \item definities:\begin{itemize}
+        \item Kleine productie-installaties(s):\begin{itemize}
+            \item Vermogen grens van productie eenheden:%vul hier afbeelding aan toe
+            \item Beschikken over een automatisch scheidingssysteem*\begin{itemize}
+                \item Voor spanningsloze werkzaamheden op de aansluiting of op openbaar distributienet, moet erkend zijn door DNB - Synergrid
+            \end{itemize}
+            \item Indien opslagsysteem aanwezig: EnFluRi sensor\begin{itemize}
+                \item Vermogensensor die het in de distributienet geïnjecteerde vermogen beperkt
+            \end{itemize}
+        \end{itemize}
+        \item Energieopslagsysteem(*):\begin{itemize}
+            \item Eenheid die in staat is om elektrische energie uit het netwerk van een DNG of het
+            distributienet op te nemen, op te slaan en terug te voeden.
+        \end{itemize}
+        \item * Systemen die via firmware injectie kunnen beletten worden beschouwd
+        als technisch in staat om energie te leveren = vallen onder de definitie!
+        \item * Systemen die aan DC-zijde gekoppeld zijn met productie-installatie worden
+        beschouwd als niet-synchrone elektriciteitsproductie-eenheid
+    \end{itemize}
+    \item Omvormers moeten opgenomen zijn in de C10/26:\begin{itemize}
+        \item Merk \& type
+        \item Firmware versie
+        \item Smax
+    \end{itemize}
+    \item Maatregelen/systemen voor LS en HS: automatisch scheidingssysteem:\begin{itemize}
+        \item Intern (Synergrid C10/26) 
+        \item Extern (Synergrid C10/21)
+    \end{itemize}
+    \item Netontkoppelbeveiligingsrelais (C10/21):\begin{itemize}
+        \item Elektr. productie-installatie moet voorzien zijn van een vergrendelbare
+        veiligheidsonderbreking die permanent toegankelijk is voor de DNB (cfr. AREI)
+    \end{itemize}
+    \item Kleine prod. Installaties: onnodig 
+    \item Niet verplicht als:\begin{itemize}
+        \item Smax <= 30kVA (bestaand + nieuw)
+        \item Automatisch scheidingssysteem aanwezig (intern of extern)
+        \item Gehomologeerd toestel
+    \end{itemize}
+    \item Verplicht als S$_{max}$ > 30kVA of als VV$^n$ niet vervuld zijn
+    \item Enfluri sensor:\begin{itemize}
+        \item Bidirectionele vermogensensor met communicatieverbinging met energieopslagsysteem
+    \end{itemize}
+    samenvatting:\begin{itemize}
+        \item S$_{max1F}$ <= 5kVA en S$_{max3F}$ <= 10kVA (Klein productie-installatie):\begin{itemize}
+            \item Grenzen van productie en opslag gelden APART 
+            \item Automatisch scheidingssysteem
+            \item Vereenvoudigde procedure
+        \end{itemize}
+        \item S$_{max}$ <= 30kVA (!= Kleine productie-installatie):\begin{itemize}
+            \item Grens is voor SOM van de DP \& Opslag 
+            \item Automatisch scheidingssysteem (of Netonkoppelbeveiliging)
+            \item Standaard procedure
+        \end{itemize}
+        \item S$_{max}$ > 30kVA : Netontkoppelbeveiliging noodzakelijk
+    \end{itemize}
+\end{itemize}
+exploitatie:\begin{itemize}
+    \item andere benodigdheden:\begin{itemize}
+        \item Synchrocheck-relais (C10/24):\begin{itemize}
+            \item Productie-installaties die synchronisatie met netspanning
+            moeten uitvoeren (bijv. Synchrone machines of Eiland-werking)
+        \end{itemize}
+        \item Export-begrenzing relais (C10/25):\begin{itemize}
+            \item Modaliteiten bepaald d.m.v. studie van DNB:\begin{itemize}
+                \item  Nulwattrelais (Bijzonder geval: kortstondig parallelwerking)
+                \item Relais voor begrenzing van injectievermogen                
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    \item Minimumspanningsrelais (S$_{max}$ > 250 kVA):\begin{itemize}
+        \item Opgelegd door DNB voor situatie waarbij:\begin{itemize}
+            \item Netontkoppelrelais niet/slecht toegankelijk is;
+            \item Nieuwe DP waar oude DP met oude beveiliging aanwezig is;
+            \item Loss of mains met lage effectiviteit of fail-safe deels aanwezig
+        \end{itemize}
+        \item Onevenwichtsrelais (3F-systemen):\begin{itemize}
+            \item Verplicht als systeem uit meerdere 1F-systemen bestaat
+            en risico op onevenwicht > 5kVA:\begin{itemize}
+                \item Tripwaarde moet ingesteld worden op 5 kVA
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+Typologieën:\begin{itemize}
+    \item AC - topologie:\begin{itemize}
+        \item PV-omvormer kan voor of achter net-interactieve omvormer
+        geplaatst worden naargelang dimensioneringscriteria
+        \item Indien PV-omvormer na de net-interactieve omvormer staat,
+        kan systeem in eiland werken
+        \item Typische waarden voor rendementen:\begin{itemize}
+            \item Rechtstreeks verbruik: 97-98\% (DC omzetten naar AC en direct in ons net (thuis) gebruiken)
+            \item Via opslag: 95\%*95\%*98\%=88\% (door batterijomvormer voor we in batterijopslag steken voor later gebruik. als we het gebruiken dan moeten we weer door de batterijomvormer. (95\% rendement omvormer)) In praktijk zal dit nog wat lager zijn door rendement batterij.
+        \end{itemize}
+        \item Automatisch scheidingsysteem \& enfluri sensor moeten voorzien worden
+    \end{itemize}
+    \item DC - topologie:\begin{itemize}
+        \item PV-omvormer wordt vervangen door MPP-tracker aangesloten op de DC-bus van de net-interactieve omvormer
+        \item MPPT heeft hoger rendement dan PV-omvormer
+        \item Hogere efficiëntie rechtstreeks naar batterijen
+        \item Typische waarden voor rendementen:\begin{itemize}
+            \item Rechtstreeks verbruik: 99x95 (0.9405\%)
+            \item via opslag: hoger dan in AC
+        \end{itemize}
+        \item Automatisch scheidingssysteem \& Enfluri
+        sensor moeten voorzien worden
+    \end{itemize}
+    \item[] DC systemen zijn interessanter voor mensen die overdag niet vaak thuis zijn omdat rendement via opslag hoger is dan in AC systeem. De DC systemen worden meer en meer geinstalleerd.
+\end{itemize}
+\section{week 6:}
+\subsection{Energieopslag:}
+Enkele voorbeelden van opslag zijn:\begin{itemize}
+    \item Batterij 
+    \item Waterstof 
+    \item Ijsbuffer 
+    \item Water 
+    \item Supercapacitor 
+    \item SMES 
+    \item Vliegwiel
+\end{itemize}
+Enkele redenen waarom we sommige systemen nog niet zoveel gebruiken zijn:\begin{itemize}
+    \item rendement 
+    \item Prijs 
+    \item \dots 
+\end{itemize}
+P vs E:\begin{itemize}
+    \item Vermogen (MW,GW,\dots) tegen energie (MWh,GWh,\dots), sommige systemen kunnen gemakkelijk hoge vermogens opwekken maar enkel voor korte tijd dus het is belangrijk om tegen elkaar te vergelijken.
+\end{itemize}
+Kennis opdoen omtrent opslagsystemen en categoriseren volgens mogelijkheid tot implementatie in bedrijven:\begin{itemize}
+    \item Mechanisch:\begin{itemize}
+        \item PHS (water)
+        \item CAES (compressed air)
+        \item FES (vliegwiel)
+    \end{itemize}
+    \item Chemisch:\begin{itemize}
+        \item p2g (waterstof)
+        \item Fuel cell
+    \end{itemize}
+    \item Elektrisch:\begin{itemize}
+        \item SMES (superconductor)
+        \item SES 
+    \end{itemize}
+    \item Elektro-chemisch:\begin{itemize}
+        \item Batterijen
+    \end{itemize}
+    \item Thermisch:\begin{itemize}
+        \item LAES (Liquid air)
+        \item PCM (phase changing materials (liquid to solid en omgekeerd))
+    \end{itemize}
+\end{itemize}
+Op dag van vandaag is opgepompt water nog altijd de grootste vorm van energie. Percentage is getaald met vroeger maar capaciteit is nog altijd vergroot. Komt gewoon vooral dat andere systemen al wat meer populair worden, vooral batterijen. in 2021 hadden we 28 GWh aan energieopslag van batterijen. in 2023 ligt dit dichter bij 90 GWh. Dit gaat redelijk parabolisch omhoog en dat zal voor tijd zo blijven.
+Elke opslag heeft zijn eigen specificaties, wat wil je met het opslagsysteem doen?:\begin{itemize}
+    \item Frequentiecontrole 
+    \item Piekvraag 
+    \item Optimalisatie van Z$_c$ \& Z$_v$
+\end{itemize}
+Kosten van energieopslag zijn kritiek:\begin{itemize}
+    \item Veel opslagtechnologieen zijn op dit moment nog te duur, maar tot 2030 wordt een enorme daling verwacht.
+    \item Investeringen in opslagsystemen zullen haalbaarder worden voor zowel grotere bedrijven, KMO's of (gedeelde) huishoudens.
+    \item Een hedendaagse batterij kost ongeveer +-600 euro per kWh alles daarboven is een slechte deal. We verwachten in de komende jaren zelf nog een daling.
+\end{itemize}
+\subsubsection{Begrippen:}
+\begin{itemize}
+    \item State of charge (SoC):\begin{itemize}
+        \item Maat van de hoeveelheid energie die in een opslagsysteem beschikbaar is, uitgedrukt in procent. 
+        \item De SoC geeft de gebruiker informatie over hoe lang het opslagsysteem nog kan presteren voordat het moet worden opgeladen.
+    \end{itemize}
+    \item Depth of discharge (DoD):\begin{itemize}
+        \item Verwijst naar de hoeveelheid energie die in een bepaalde cyclus in en uit het
+        opslagsysteem wordt gehaald. 
+        \item Uitgedrukt als een percentage van de totale capaciteit van het opslagsysteem
+    \end{itemize}
+    \item State of health (SoH):\begin{itemize}
+        \item Geeft de toestand van het opslagsysteem aan in vergelijking met de ideale omstandigheden
+    \end{itemize}
+    \item C-rate:\begin{itemize}
+        \item De C-rate is een maat voor de snelheid waarmee een batterij wordt opgeladen of ontladen. 
+        \item Het wordt gedefinieerd als de stroom door de batterij gedeeld door de theoretische stroomafname waarbij het opslagsysteem zijn nominale capaciteit in 1 uur zou leveren. Meeste batterijen dag van vandaag hebben een waarde van 0,5C.
+    \end{itemize}
+    \item Charge/discharge time:\begin{itemize}
+        \item Tijd die nodig is om het opslagsysteem volledig op te laden of te ontladen. 
+        \item De impact van de laad-/ontlaadstroom is belangrijk om rekening mee te houden 
+        \item Hoe lager de laadstroom, hoe effectiever het laden 
+        \item Vuistregel - De laadstroom kan 10 à 20\% van de C20-snelheid zijn
+    \end{itemize}
+    \item Peukert coefficient:\begin{itemize}
+        \item Geeft bij benadering de verandering in capaciteit van batterijen weer bij verschillende ontlaadpercentages. 
+        \item Naarmate de ontlaadsnelheid toeneemt, neemt de beschikbare capaciteit van de batterij af, volgens de wet van Peukert. 
+        \item We laden meestal batterijen op maximale stroom op tot ongeveer 80\% en dan laten we de stroom zakken zodat de batterij niet kan ontploffen.:\begin{itemize}
+            \item Bulk/boost fase = CST I, U stijgt (korte tijd voor veel energie).
+            \item Absorption fase = CST U, I daalt (zal lang duren voor weinig energie).
+            \item Float fase = lagere U voor zelfontlading
+        \end{itemize}
+    \end{itemize}
+    \item Zelfontlading:\begin{itemize}
+        \item Is een fenomeen in opslagsystemen dat de opgeslagen lading van de batterij vermindert zonder enige verbinding. 
+        \item Zelfontlading is permanent en kan niet worden teruggedraaid. 
+        \item Zelfontlading neemt toe met veroudering, cycli en verhoogde temperatuur 
+        \item Belangrijke parameter in opslagsystemen zoals batterijen, vliegwielen en supercondensatoren.
+    \end{itemize}
+    \item Temperatuurseffect:\begin{itemize}
+        \item Temperatuur is van invloed op het vermogen van sommige opslagsystemen (bijv. accu's)
+    \end{itemize}
+    \item Cyclus:\begin{itemize}
+        \item De meest gebruikte cyclus wordt berekend aan de hand van de energie
+        die in/uit een opslagsysteem gaat en gedeeld door de totale doorvoer
+        van energie naar capaciteit.
+        \item Ook bekend als Equivalent full cycles.
+    \end{itemize}
+    \item Energie dichtheid:\begin{itemize}
+        \item Hoeveelheid energie opgeslagen in een gegeven massa (of volume) 
+        \item Wanneer een systeem een hoge energiedichtheid heeft, is het in staat veel energie op
+        te slaan in een kleine hoeveelheid massa. 
+        \item Een hoge energiedichtheid betekent niet noodzakelijk een hoge vermogensdichtheid
+    \end{itemize}
+    \item Vermogensdichtheid:\begin{itemize}
+        \item Hoeveelheid vermogen in een gegeven massa (of volume) 
+        \item Als een systeem een hoge vermogensdichtheid heeft, dan kan het grote hoeveelheden
+        energie produceren op basis van zijn massa. 
+        \item Een kleine condensator kan hetzelfde vermogen hebben als een grote batterij 
+        \item Systemen met hoge vermogensdichtheid kunnen ook snel opladen
+    \end{itemize}
+\end{itemize}
+\subsubsection{Overzicht technologieën:}
+Zeker enkele karakteristieken kennen van elk systeem voor examen als we bvb vergelijkingen moeten doen!
+\paragraph{Pumped hydro (PHS)}
+Algemeen:\begin{itemize}
+    \item Één van de oudste technologieën gebruikt voor energie opslag
+    \item Gebaseerd op synchrone opwekking
+    (omzetting van kinetische naar mechanische energie):\begin{itemize}
+        \item Het leveren van kritieke ondersteunende diensten aan het net, door het
+        leveren van inertie-, frequentie- en spanningsondersteuning en voldoende
+        ondersteuning voor het storingsniveau.
+        \item Lage prijzen (21 USD/kWh) per kWh opgeslagen energie 
+        \item Niet efficiënt voor het opslaan en vrijgeven van energie:\begin{itemize}
+            \item Max. vermogen = 9,81 * debiet * densiteit van water * hoogteverschil
+            \item 10 badkuipen van 100 liter op 10 m produceren 0.02 kWe
+        \end{itemize}
+    \end{itemize}
+    \item Voorbeeld België - Watervallen van Coo:\begin{itemize}
+        \item 2 bovenbassings met een totaal watervolume van 8.5 miljoen
+        \item Onderbasin zelfde volume (71 hectare)
+        \item Maximaal vermogen = 500 m³ water per seconde
+        \item Coo kan 1164 MW leveren gedurende 6 uur
+    \end{itemize}
+    \item Energie atol:\begin{itemize}
+        \item Oplossing voor landen die geen groot hoogteverschil hebben
+        \item Specificaties voorbeeld atol in België:\begin{itemize}
+            \item Lengte 4 km \& breedte 2.5 km
+            \item 550 MW \& 2000 MWh
+            \item Prijs:\begin{itemize}
+                \item Investeringskost: 1,3 tot 1,7 miljard euro
+                \item Operationele kost: 5,6 Miljoen euro per jaar
+            \end{itemize}
+            \item Levensduur= 50 jaar
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\paragraph{Batterijen:}
+Battery storage is (almost) ready to play the flexibility game. Verwachtingen:\begin{itemize}
+    \item[] Historisch daalde de prijs door technologische innovatie, in 2023 is dit door de lagere
+    grondstofkosten (vooral lithium)
+    \item 2023: Prijs blijft 150 dollar/kWh
+    \item 2024: Prijs zal terug dalen door verhoogde extractie
+    \& extra capaciteit
+    \item 2026: Prijs moet onder 100 dollar/kWh gaan
+    \item $\rightarrow$ 2 jaar later dan initeel voorzien, probleem
+    voor EV sector voor massaproductie    
+\end{itemize}
+Batterij technologieën:\begin{itemize}
+    \item overzicht:\begin{itemize}
+        \item Veel technologieën en er moeten er nog veel meer bijkomen. 
+        \item Nieuwe generatie Li-ion batterijen:\begin{itemize}
+            \item Met actuele materialen \& cel designs, wordt verwacht dat Li-ion
+            technologie aan zijn limiet zijn binnen de komende jaren. 
+            \item Zeer recent hebben ze nieuwe families van schadelijke actieve
+            materialen die nieuwe limieten mogelijk maken.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+Verschillende technologieën:\begin{itemize}
+    \item Loodzuur batterij:\begin{itemize}
+        \item Elektrodes: Pb, electrolyt: S + gedistilleerd H²O
+        \item Discharge: PbSO4+2e
+        \item Gel or AGM. (gel batterijen mag je plat leggen)
+        \item 2 categorieën:\begin{itemize}
+            \item FLA (Flooded lead acid) - onderhoud noodzakelijk
+            \item VRLA (Valve regulated lead acid)
+        \end{itemize}
+        \item Dimensionering van elektrodes afhankelijk van gebruik
+    \end{itemize}
+    \item Li-ion (ex. LFP):\begin{itemize}
+        \item Elektrodes van LFP: LiFe(PO4) als kathode, Graphitic carbon
+        electrode met metallic backing als anode, electrolyte: Li-ion zout
+        \item Veel varianten
+        \item Zal wel iets groter zijn dan andere soorten batterijen.
+    \end{itemize}
+    \item Lithium batterij:\begin{itemize}
+        \item Betere levensduur:\begin{itemize}
+            \item Probleem: Elektrolyt gaat langzaam stuk aan oppervlak batterij 
+            \item Oplossing: Elektrolyt van 5 zouten mixen i.p.v. 1 à 2:\begin{itemize}
+                \item Stabieler oppervlak elektrolyt en elektrodes
+            \end{itemize}
+        \end{itemize}
+        \item Platte batterij (LeydenJar):\begin{itemize}
+            \item Elektrodes van LFP: LiFe(PO4) als kathode, Silicium als anode,
+            electrolyte: Li-ion zout
+            \item Beginstadium: 100 - 1000 oplaadcycli mogelijk
+        \end{itemize}
+        \item Platte batterij (Blade Battery):\begin{itemize}
+            \item Zonder modules (zoals in smartphone ipv rond)
+            \item Compacter en beter regelbaar
+        \end{itemize}
+    \item Toekomst Lithium batterijen:\begin{itemize}
+        \item Solid State batterijen (Lithium Metal, ...):\begin{itemize}
+            \item Vloeistof veranderen door keramiek of andere vaste metalen
+        \end{itemize}
+        \item Zoutwater Batterij:\begin{itemize}
+        \item Gesmolten zand
+        \item 10x goedkoper 
+        \item Kamertemperatuur
+        \end{itemize}
+        \item Veel andere mogelijkheden
+    \end{itemize}
+    \item Hergebruik - Recycling:\begin{itemize}
+        \item Recyclage:\begin{itemize}
+            \item Lithium accu's 98\% recycleerbaar
+            \item Lithium kathoden kunnen beter presteren bij hergebruik na
+            recyclage 
+            \item Norm - Motiveren!
+            \item Second life batterij - Hergebruik
+        \end{itemize}
+    \end{itemize}
+    \end{itemize}
+    \item Flow batterijen:\begin{itemize}
+        \item Herlaadbare batterij waarin 2 oplossingen (catholyte \& anolyte) gescheiden
+        zijn via een ion doorlatend membraam.
+        \item De elektrode vloeistoffen zijn opgeslagen in afzonderlijke tanks:\begin{itemize}
+            \item Anolyte wordt geoxideerd op de elektroden 
+            \item Katholyte neemt elektronen en wordt gereduceerd
+            \item Zolang er genoeg anolyte \& katholyte beschikbaar is, gaat de elektronen
+            overdracht door...
+            \item Bij tegengestelde spanning is er een tegengestelde reactie (omkeerbaar
+            proces)
+        \end{itemize}
+        \item Vermogensdichtheid is onafhankelijk van de batterijcapaciteit
+        \item Grootte van de tank bepaald de opslagcapaciteit
+        \item Geen DoD
+        \item Levensduur hangt af van:\begin{itemize}
+            \item Temperatuur
+            \item Grootte van de ontlaadstroom
+        \end{itemize}
+        \item Beperkte maturiteit:\begin{itemize}
+            \item Zinc - Bromide - technologie 
+            \item Vanadium Redox technologie
+        \end{itemize}
+        \item Pompen en kleppen zijn vereist
+    \end{itemize}
+    \item Andere:\begin{itemize}
+        \item Nikkel-ijzer batterij:\begin{itemize}
+            \item Uitgevonden door Thomas Edison 
+            \item Nikkel \& ijzer \& een alkaline 'elektrolyt'
+            \item Batterij kan niet over- of onderladen worden
+            \item Ongelimiteerd aantal cycli?!
+            \item Moet hervuld worden met gedistilleerd water
+        \end{itemize}
+        \item Zout water batterij:\begin{itemize}
+            \item Milieuvriendelijke batterij opslag 
+            \item Robuuste technologie \& DOD van 100\%
+            \item Betrouwbaar en onderhoudsvrij
+            \item Niet brandbaar, niet explosief, veilig aanraakbaar
+            \item Overladen niet mogelijk!
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\subparagraph{Recyling van batterijen:}
+\begin{itemize}
+    \item Lood, Nikkel, Cadnium,... Zijn zware metalen, schadelijke stoffen komen alleen vrij bij de
+    productie en recycling!
+    \item Recycling is belangrijk -> Acceptatie verplichting!\begin{itemize}
+        \item Vlaamse en Europese regelgeving bieden verplicht inzamelpunt (België = BEBAT) 
+        \item Opvolging door OVAM 
+        \item België behoort tot de top in Europa
+    \end{itemize}
+    \item Ex. Loodzuur batterij:\begin{itemize}
+        \item Zwaar metaal
+        \item Resulteert in afnemende hersenfuncties en gedragsproblemen wanneer het in de bloedsomloop komt 
+        \item Indien ingesloten in het batterijpak, kent het geen risico's. Alleen bij de productie (4\%), verwerking en recycling (2\%) kunnen loodemissies optreden
+        \item 75\% vermindering van loodemissies in de laatste 20 jaar!
+        \item Meer dan 90\% van de loodzuur-batterijen kan worden gerecycleerd (bijna gesloten kringloop!)
+    \end{itemize}
+    \item Ex. Lithium batterij:\begin{itemize}
+        \item Gevaarlijk bij contact met water (explosie)!\begin{itemize}
+            \item Lithium reageert heftig met water en veroorzaakt brand en explosie
+            \item Recycling Li-ion batterijen blijft immatuur \& duur. Snelle daling wordt hier niet verwacht
+            \item Hoewel de kosten voor het volledig recycleren van een batterij dalen tot 1 euro
+            per kg (ongeveer 10 euro per kWh), is dit ongeveer 3 keer meer dan wat kan worden
+            verwacht van de verkoop van de gerecycleerde materialen op de markt
+            \item Momenteel wordt slechts 3\% van de li-ionbatterijen gerecycleerd
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\subparagraph{Second life batterijen:}\begin{itemize}
+    \item Second-life EV batterijen: De nieuwste waardepool in energieopslag:\begin{itemize}
+        \item Verwacht wordt dat tegen 2025; 3,4 miljoen gebruikte batterijen voor elektrische voertuigen op de markt zullen komen, goed voor een cumulatieve capaciteit van 95 GWh
+        \item Hergebruik van oude accu's van elektrische voertuigen om een (grootschalig) opslagsysteem te bouwen.\begin{itemize}
+            \item Ex. Bosch, Vattenfall \& BMW hebben een second life batteries alliantie opgericht\begin{itemize}
+                \item Batterijen die voorheen in BMW elektrische voertuigen werden ingebouwd en die het einde van hun levenscyclus in het voertuig hebben bereikt
+                \item De batterijen worden samengevoegd, getest en opnieuw bekabeld
+            \end{itemize}
+            \item Ex. Nisan Energy \& OPUS campers:\begin{itemize}
+                \item Smart camping
+                \item Accu's kunnen een week lang stroom leveren voor avonturen
+                zonder netaansluiting (700 MWh en 1 kW uitgangsvermogen)
+            \end{itemize}
+        \end{itemize}
+    \end{itemize} 
+\end{itemize}
+\subparagraph{batterijen EV's:}
+\begin{itemize}
+    \item 25 tot 105 kWh batterij (400-800V technologie)
+    \item Meest gebruikte technieken:\begin{itemize}
+        \item Blade Battery Pack:\begin{itemize}
+            \item LiPo4
+        \end{itemize}
+        \item Battery Pack with modules:\begin{itemize}
+            \item Li-Ion
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\subparagraph{Dimensionering:}
+\begin{itemize}
+    \item Ex. Batterij \& PV-installatie - residentiele woning:\begin{itemize}
+        \item Wanneer opslag wordt toegevoegd, nemen zelfconsumptie en zelfvoorziening toe
+        \item Verzadiging treedt op door het dagelijkse en seizoensgebonden karakter van zonne-energie
+        \item Overdimensionering van opslag biedt geen toegevoegde waarde!!!
+    \end{itemize}
+    \item[] In deze grafiek van zelfconsumptie en zelfverbruik (bij 1 op 1) is de batterij er nog niet in berekend daarvoor heb je de andere lijnen op de grafiek is dit met gebruik van batterij.
+\end{itemize}
+Net onafhankelijkheid - Laagspanningsnet (Uitval tussen 17 - 20 uur)
+\subparagraph{Individueel versus groep:}
+\begin{itemize}
+    \item Evaluatie van individuele versus community oplossingen (toekomstige LEC/CEC/REC)\begin{itemize}
+        \item Volgens de distributienetbeheerder hebben 75\% van de voedingslijnen maximum 30 connecties
+        \item Literatuur toont aan dat de grootste impact op community afgeleid kan worden door het aggregeren van 15 tot 20 woningen, nadien treedt saturatie-effect op
+    \end{itemize}
+\end{itemize}
+groep batterij zetten is opzich beter omdat je die pieken niet zal hebben omdat je batterij groter is waardoor uw cycli verbeteren waardoor de levensduur beter is. bvb voor 30 woningen kan je een dan een batterij zetten van 28kWh/28kWp. Wordt in de praktijk al gebruikt maar niet echt voor laagspanningsnetten. Fluvius mag dit niet plaatsen omdat ze wettelijk gezien dan energieleverancier zouden zijn ipv energiedistributeur.
+\subsection{Energieopslag (hoofdstuk 5)}
+\subsubsection{Waterstof:}
+waterstof als opslagmedium\begin{itemize}
+    \item productie via elektriciteit:\begin{itemize}
+        \item Green hydrogen
+        \item Purple/pink hydrogen 
+        \item Yellow Hydrogen
+    \end{itemize}
+    \item Productie via fossiele brandstoffen:\begin{itemize}
+        \item Blue hydrogen 
+        \item Turqoise hydrogen 
+        \item Grey Hydrogen 
+        \item Brown Hydrogen 
+        \item Black Hydrogen
+    \end{itemize}
+\end{itemize}
+meest voorkomende elektrolyser dag van vandaag is de PEMFC (Proton Exchange Membrane Fuel Cell)
+\subsubsection{Optimaal gebruik van RES \& opslag:}
+\paragraph{Profiel analyse:}
+\begin{itemize}
+    \item Klassieke consument $\rightarrow$ prosument:\begin{itemize}
+        \item Hernieuwbare energie 
+        \item Opslag
+    \end{itemize}
+    \item Omvormers = interface\begin{itemize}
+        \item AC/DC koppeling 
+        \item Stroomlimiet 
+        \item Spanningsbereik 
+        \item Controle laag 
+    \end{itemize}
+    \item Opslagtechnologie naar analogie met "Merit Order":\begin{itemize}
+        \item $\frac{KW}{KWh}$ energie- en vermogensdichtheid
+        \item Levensduur of \# cycli binnen grenzen SOH 
+        \item Zelfontlading, cyclusefficientie
+    \end{itemize}
+\end{itemize}
+Data vereist voor dimensionering(analyse):\begin{itemize}
+    \item Mogelijkheid 1: Kwartierdata opvragen (Via API):\begin{itemize}
+        \item Analyse kwartierdata versus seconden data:\begin{itemize}
+            \item Geen kortstondige pieken zichtbaar in uitgemiddelde kwartierdata, dus geen nood aan dimensionering opslag door minimale netimpact?!:\begin{itemize}
+                \item Groot verschil tussen werkelijkheid en metingen!! 
+                \item Weet in welke mate uw profiel een uitgemiddeld of gepiekt
+                profiel is voor de correcte dimensionering!
+            \end{itemize}
+        \end{itemize}
+        \item Analyse kwartierdata versus secondedata voor type profielen:\begin{itemize}
+            \item Verbruiksprofiel afwijking 7\%, bij zonneprofiel een afwijking van 62\% en windprofiel afwijking van 60\% van kwartier en secondedata
+            \item Type datasets van uitermate belang voor dimensionering:\begin{itemize}
+                \item Secondedata $\rightarrow$ Levensduur en installatiekost (kVA) 
+                \item Kwartierdata $\rightarrow$ Factuur en basisdimensionering Zc en Zv (=energiewinst)
+            \end{itemize}
+            \item Benutting wind is groter dan zon (wind varieert continue, terwijl zon typisch dag/nacht patroon)
+        \end{itemize}
+    \end{itemize}
+    \item Mogelijkheid 2: Eigen meetcampagne (EMS systeem of  kortdurende meting):\begin{itemize}
+        \item Voorbeeld:
+        \item Meten en berekenen?!
+        \item Real time opvolging
+    \end{itemize}
+\end{itemize}
+\paragraph{Analyse Zc, Zv ifv hernieuwbare en opslag}
+\subparagraph{Residentieel:}
+\begin{itemize}
+    \item Individueel versus groep\begin{itemize}
+        \item Evaluatie van individuele versus community oplossingen (toekomstige LEC/CEC/REC)\begin{itemize}
+            \item Volgens de distributienetbeheerder hebben 75\% van de voedingslijnen maximum 30 connecties
+            \item Literatuur toont aan dat de grootste impact op community afgeleid kan worden door het aggregeren van 15 tot 20 woningen, nadien treedt saturatie-effect op
+        \end{itemize}
+        \item Zowel voor woningen evenals bedrijven kunnen energiegemeenschappen
+        grote meerwaarde creëren:\begin{itemize}
+            \item Voor woningen wordt al saturatie van profielen gezien vanaf 5 profielen
+        \end{itemize}
+        \item Betere benuttiging opslagcapaciteit en kleinere opslagcapaciteit vereist Overdimensionering heeft geen zin!
+    \end{itemize}
+\end{itemize}
+\subparagraph{Industrieel:}
+(vuistregel bij industry 0.5kWh per MWh)
+\begin{itemize}
+    \item In welke mate is categorisatie van profielen bij bedrijven mogelijk?\begin{itemize}
+        \item Op basis van NACE codes geen duidelijke categorisatie
+        \item Clustering op basis van karakteristieke parameters (aansluitcapaciteit, type ploegenstelsel, categorisatie type bedrijven,...)
+        \begin{itemize}
+            \item Categorisatie blijft leiden tot te grote diversiteit in profielen
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item Individuele analyse - optimumbepaling:\begin{itemize}
+        \item Methode 2: Afgeleiden\begin{itemize}
+            \item Technologische optimalisatie (via afgeleiden)
+                \item 1ste afgeleide:\begin{itemize}
+                \item Mate van verandering van het eigen verbruik. Bepaald de steilheid van het
+                eigenverbruik
+                \end{itemize}
+                \item 2de afgeleide:\begin{itemize}
+                    \item Mate van verandering van de 1ste
+                    afgeleide
+                \end{itemize}
+            \item Meer keuzevrijheid ifv economische incentive?!
+        \end{itemize}
+        \item Groene zone: Optimum in geval van grootste verandering\begin{itemize}
+            \item Technologisch optimum ifv Zc en Zv
+        \end{itemize}
+        \item Gele zone: Voldoende variatie\begin{itemize}
+            \item Stijgen van eigenverbruik, maar steeds minder optimaal
+        \end{itemize}
+        \item Rode zone: Bijna geen variatie meer\begin{itemize}
+            \item Grote overdimensionering met weinig bijdrage tot
+            optimalisatie (behalve voor volledige onafhankelijkheid)
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\end{document}

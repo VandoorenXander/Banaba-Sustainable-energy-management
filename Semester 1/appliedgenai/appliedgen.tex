@@ -1,0 +1,315 @@
+
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+
+\usepackage{microtype}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+
+\usepackage{matlab-prettifier}
+% % voor code syntax highlighting
+% \usepackage{minted}
+
+% beter font
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\renewcommand{\familydefault}{\sfdefault}
+\graphicspath{{imagessoft/}}
+\begin{document}
+\begin{titlepage}
+    \author{Xander Vandooren}
+    \title{Applied \& generative AI}
+\end{titlepage}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Session 7:}
+\subsection{Recommender systems:}
+Wat zijn recommender systems?
+\begin{itemize}
+    \item Traditional media:\begin{itemize}
+        \item Broadcasting is time limited
+    \end{itemize}
+\end{itemize}
+Grafiek: met recommenders proberen ze dit recht te trekken.
+Voorbeeld van recommender systems zijn spotify,Amazon,Netflix.
+\subsubsection{Gevaren:}
+\begin{itemize}
+    \item Je kan vast zitten in je eigen bubbel.
+    \item Op gegeven moment zelfde genre (bvb bij netflix altijd zelfde genre)
+    \item Marketing 
+\end{itemize}
+\subsubsection{Type input data:}
+\begin{itemize}
+    \item Items data (bvb in films alles van karakteristieken:genre,acteurs,...)
+    \item Gebruiker data (Expliciete feedback bvb duim omhoog, 4/5 sterren en impliciete data bvb kijk je een film uit of hoeveel afleveringen van serie kijk je uit etc. Impliciete data is vaak belangrijker dan expliciet)
+    \item Interractie items (Hoe reageren we op iets.)
+\end{itemize}
+Context: bvb dag in de week of feestdag,geslacht,... 
+\subsubsection{Basic concepts:}
+\begin{itemize}
+    \item Algorithms\begin{itemize}
+        \item Non-personalized
+        \item Personalized\begin{itemize}
+            \item Knowledge-based filtering (KBF) (redelijk algemeen bvb gewoon als man die leeftijds groep is zal hij wss deze film graag zien)
+            \item Content-based filtering (CBF) (items vergelijken met elkaar)
+            \item Collaborative filtering (CF) (wss bekentste systeem)\begin{itemize}
+                \item User based 
+                \item Item based 
+                \item Matrix factorization 
+            \end{itemize}
+            \item Context-aware (CARS)
+            \item Hybrids\begin{itemize}
+                \item Deep learning, Factorization machines...
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\paragraph{Item-content matrix:}
+attributen $\rightarrow$strenght of connection
+\paragraph{User-rating Matrix (URM):}
+\begin{itemize}
+    \item Explicit:\begin{itemize}
+        \item ratings, thumbs-up...
+    \end{itemize} 
+    \item Implicit:\begin{itemize}
+        \item Did a user finish the movie?
+        \item Did he watch the second part?
+        \item DId he fast-forward?
+    \end{itemize}
+\end{itemize}
+User-item interaction matrix 
+Meestal is er maar 1\% van uw matrix ingevuld (groter dan 0). Bij netflix is de URM density=0.02\%.
+\subparagraph{Explicit ratings: Large rating scales vs small rating scales:}
+\begin{itemize}
+    \item Large rating scale:\begin{itemize}
+        \item large user effort 
+        \item fewer ratings
+    \end{itemize}
+    \item Small rating scale:\begin{itemize}
+        \item small user effort 
+        \item more ratings
+    \end{itemize}
+\end{itemize}
+\subparagraph{Explicit ratings: even vs odd ratings:}
+\begin{itemize}
+    \item even ratings scale:\begin{itemize}
+        \item user forced to express opinion
+        \item few ratings
+    \end{itemize}
+    \item odd ratings scale:\begin{itemize}
+        \item trend in giving neutral rating 
+        \item more ratings 
+        \item user more comfortable
+    \end{itemize}
+\end{itemize}
+\subparagraph{Explicit rating: user bias:}
+bvb. enkel negatieve reviews omdat mensen enkel hun tijd nemen om iets te raten als het slecht is.
+\subparagraph{Top popular item:}
+Grootste hoeveelheid ratings
+\subparagraph{Best rated item:}
+is eigelijk gewoon formule gemiddelde doen.
+\subparagraph{Best rated item with shrink term:}
+Items met veel hoge ratings zouden beter moeten zijn dan items met 1 top rating. Hier moet je een Determince C bias toevoegen dit is wel beetje trial en error om uit te zoeken wat juiste C moet zijn.
+\subsubsection{Preprocessing: global effects formula:}
+\begin{itemize}
+    \item Item bias: user will think differently about a movie now than in 20 years. Due to the style, genre, how innovative it is/was.. 
+    \item User bias: users can rate a movie differently based on nostalgia, because they rate higher on average, because it reminds them of a book or a special moment... 
+\end{itemize}
+\begin{enumerate}
+    \item Averate ratings:\begin{itemize}
+        \item Average ratings for all items and users
+    \end{itemize}
+    \item Normalized rating:\begin{itemize}
+        \item To be computed for eacht user u and item i, only on non-zero ratings
+    \end{itemize}
+    \item Item bias:\begin{itemize}
+        \item N$_i$: Number of users who have rated item i to be computed for each item i
+    \end{itemize}
+    \item Recompute rating:\begin{itemize}
+        \item To be computed for each user u and item i, only on non-zero ratings
+    \end{itemize}
+    \item User bias:\begin{itemize}
+        \item N$_u$: number of items i rated by user u to be computed for each user u
+    \end{itemize}
+\end{enumerate}
+Final formula: Global effects formula to be computed for each user u and item i, only on non-zero ratings
+\subsubsection{Evaluating recommender systems:}
+Kwaliteit is afhankelijk van dataset $\rightarrow$ algorithm $\rightarrow$ user interface
+\paragraph{Quality indicators:}
+\begin{itemize}
+    \item Relevance 
+    \item Coverage 
+    \item Novelty 
+    \item Diversity 
+    \item Consistency 
+    \item Confidence 
+    \item Serendipity
+\end{itemize}
+\paragraph{on-line \& off-line evaluation:}
+\subparagraph{on-line: direct user feedback:}
+Ask for feedback by a rating, questionnaire.
+\begin{itemize}
+    \item 2 problems:\begin{itemize}
+        \item Not always reliable opinions 
+        \item Amount of feedback should be large enough
+    \end{itemize}
+\end{itemize}
+\subparagraph{on-line: A/B testing}
+Monitor the behaviour:\begin{itemize}
+    \item Set A: users with a recommendation
+    \item Set B: users without recommendation
+\end{itemize}
+Will they behave differently? (Buy more products, spend more time on Netflix...)
+\begin{itemize}
+    \item But:\begin{itemize}
+        \item Difficult to set up
+        \item Difficult to interpret (if results bad: lack of relevance or lack of diversity?)
+    \end{itemize}
+\end{itemize}
+\subparagraph{on-line: controlled experiments:}
+Set up a mock-up application for a group of users\begin{itemize}
+    \item Test application for a while and gather feedback
+\end{itemize}
+But:\begin{itemize}
+    \item Not a real application, not the same as using real users
+\end{itemize}
+\subparagraph{Off-line evaluation 4 steps:}
+\begin{itemize}
+    \item Defining task\begin{itemize}
+        \item Rating prediction (Top-N recommendation)
+    \end{itemize}
+    \item Dataset\begin{itemize}
+        \item URM
+    \end{itemize}
+    \item Partitioning \begin{itemize}
+        \item Model: look for connections in URM
+        \item User Profile: what does user like in general?
+        \item R: recommendation
+        \item Metric: compare recommendation with true opinion
+        \item \textbf{Three types of data needed:}\begin{itemize}
+            \item Model uses data to detect rules -> model = f(X)
+            \item Estimated ratings come from the model and user profile -> estimated ratings = g(model, Y)
+            \item Compare estimated ratings with true value -> estimated rating <-> Z
+        \end{itemize}
+        \item Oppassen voor overfitting!
+    \end{itemize}
+    \item Metrics:\begin{itemize}
+        \item Quality metrics:\begin{itemize}
+            \item Error metrics:\begin{itemize}
+                \item MAE \& MSE
+            \end{itemize}
+            \item Classification metrics :\begin{itemize}
+                \item True positive 
+                \item False positive 
+                \item False negative 
+                \item True negative 
+            \end{itemize}
+            \item Ranking metrics:\begin{itemize}
+                \item ROC curve:Weten dat er een Area under curve is (AUC).
+                \item mAP (mean average precision)
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\subsubsection{Content-based filtering:}
+compare items based on their attributes. A user that expressed a preference for an item is likely to like similar items.
+\paragraph{Recommendations based on cosine similarity}
+an element of the ICM is 1 if the item has an attribute else 0.
+\subparagraph{Dot product:}
+many attributes in common $\rightarrow$ the two items are very similar 
+\begin{itemize}
+    \item[] $\hookrightarrow$ Cosine similarity is the normalization of the dot product. If two items are similair their cosine will be large.
+\end{itemize}
+\subparagraph{Improving on cosine similarity: shrinking}
+Shrinking:\begin{itemize}
+    \item Reduce similarity to take into account only most similar with large support
+    \item C: Shrink term
+\end{itemize}
+\subparagraph{Estimating a rating:}
+Weighted average of previous given ratings:\begin{itemize}
+    \item r$_ui$ = the rating of user u on item i
+    \item Choose item with the highest r to recommend 
+    \item Or if you want an item of the top-N 
+    \item Remove the denominator to save calculation
+\end{itemize}
+\paragraph{K-nearest neighbours (KNN):}
+Similarity matrix problems:\begin{itemize}
+    \item Very dense - not many 0-values: computational heavy
+    \item A lot of small similarity values:\begin{itemize}
+        \item A lot of very similar small values 
+        \item Hard to distinguish between
+        \item Noise \& low quality
+    \end{itemize}
+\end{itemize}
+Solution: keep K most similar items\begin{itemize}
+    \item K influences the quality of the recommendations:
+    \item Small K: not enough data for a reliable estimation
+    \item Big K: too much noise in the data
+\end{itemize}
+\paragraph{TF-IDF}
+\subparagraph{ICM improvements: non-binary attributes:}
+\subparagraph{ICM improvements: attribute weights:}
+\subparagraph{ICM improvements: TF-IDF:}
+Do we have to manually figure out the attribute weights and non-binary attribute values?
+No! We can use a technique to do this automatically.
+\begin{itemize}
+    \item TF-IDF: Term Frequency - Inverse Document Frequency
+    \item TF-IDF = TF * IDF $\rightarrow$ The weight of each attribute depends on its frequency
+    \item Replace Item-Content Matrix by TF-IDF matrix
+\end{itemize}
+\begin{itemize}
+    \item TF: Term frequency:\begin{itemize}
+        \item Higher if attribute appears more for an item
+    \end{itemize}
+    \item IDF: Inverse document frequency:\begin{itemize}
+        \item Higher if attribute appears more over all items
+    \end{itemize}
+\end{itemize}
+TF-IDF: higher value to terms that are frequent for an item, but rare in the whole collection of items. One value per item - attribute pair.
+\begin{enumerate}
+    \item Apply TF-IDF on the Item-Content matrix to obtain a TF-IDF matrix
+    \item onstruct the similarity matrix by applying cosine similarity on the TF-IDF matrix. Also use a shrink term if necessary.
+    \item pply K-Nearest Neighbours on the similarity matrix
+\end{enumerate}
+\subparagraph{Pros and cons content-based filtering:}
+\begin{itemize}
+    \item Pros:\begin{itemize}
+        \item 
+    \end{itemize}
+\end{itemize}
+\subsubsection{Collaborative filtering:}
+Often better quality recommendations compared to other methods.Large number of different techniques: user-based and item-based are seen here. Ratings that a user has not explicitly given to an item, can be inferred because therating is correlated across various users and items.
+\paragraph{User-rating matrix:}
+Matrix containing past interactions between users and
+items\begin{itemize}
+    \item Explicit ratings: for example rating from 1 to 5 (0 if
+    missing)
+    \item Implicit ratings: for example 1 if there is interaction
+    with item and 0 otherwise
+\end{itemize}
+Implicit information is often more interesting than explicit. Most simple algorithms choose between explicit and implicit.
+\begin{itemize}
+    \item Search for similar users and recommend items they like:\begin{itemize}
+        \item If two users give similar ratings to several items, we assume that they share the same opinion. 
+        \item Better to have a number between 0 and 1
+    \end{itemize}
+\end{itemize}
+\subsubsection{Model based vs memory based systems:}
+Model based:when a new user is added, the similarity
+matrix does not change the model significantly (Item based).
+Memory based: when a new user is added, the
+similarity matrix changes (User based).
+\end{document}
