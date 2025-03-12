@@ -1,0 +1,240 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+
+\usepackage{microtype}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+
+\usepackage{matlab-prettifier}
+% % voor code syntax highlighting
+% \usepackage{minted}
+
+% beter font
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\renewcommand{\familydefault}{\sfdefault}
+\graphicspath{{imagessoft/}}
+\begin{document}
+\begin{titlepage}
+    \author{Xander Vandooren}
+    \title{Energie-Strategie}
+\end{titlepage}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Inleiding}
+\begin{itemize}
+    \item[] Energy:\begin{itemize}
+        \item The physical property that allows to quanity the change of the state (set of variables) of a system:\begin{itemize}
+            \item Modification of temperature
+            \item Modification of shape 
+            \item Modification of chemical composition 
+            \item Modification of the position in a magnetic, electric or gravitational field 
+            \item Change in atomic composition 
+            \item Modification of number of photons
+        \end{itemize}
+    \item the QUANTITATIVE PROPERTY that must be transferred to a body or physical SYSTEM to
+    perform work on the body, or to heat it
+    \item $\rightarrow$ Energy quantifies the transformation of the environment
+    \end{itemize}
+    \item[] Strategy: a general PLAN to achieve one or more long-term or overall GOALS under
+    conditions of uncertainty. 
+\end{itemize}
+Energy strategy is embedded in:\begin{itemize}
+    \item General business strategy:\begin{itemize}
+        \item Competitiveness 
+        \item Sustainability
+    \end{itemize}
+\end{itemize}
+Energy strategy is:\begin{itemize}
+    \item An early step in Energy management (as part of environmental
+    management) 
+    \item \underline{P}DCA : Planning phase in the energy management system
+\end{itemize}
+The business strategy: (10 examples of great business strategy)\begin{enumerate}
+    \item Cross-sell more products 
+    \item Most innovative product or service 
+    \item Grow sales from new products 
+    \item Improve customer service 
+    \item Cornering a young market 
+    \item Product differentiation
+    \item Pricing strategies
+    \item Technological advantage
+    \item Improve customer retention
+    \item Sustainability
+\end{enumerate}
+An energy policy defines:\begin{itemize}
+    \item ENERGY GOALS in line with the business strategy
+    \item The purpose of the energy policy statement is to document the organization’s
+    commitment and overall approach to energy at a high level. It does not need to have any detail on how the organization will manage its energy.\begin{itemize}
+        \item What to do = Policy (general rules, goals and objectives) 
+        \item How to do it = Management (actions and decisions)
+    \end{itemize}
+    \item It needs to provide guidelines on how the organization will manage its energy
+\end{itemize}
+An energy strategy refers to:\begin{itemize}
+    \item The PLAN a company makes to implement its energy policy 
+    \item The starting point of Energy management (actions and decisions)
+\end{itemize}
+The policy requires the following:\begin{itemize}
+    \item It needs to be appropriate to the nature and scale of the organizations energy use
+    \item It needs to be reviewed and updated regularly (e.g. annually) to ensure that it remains relevant. This review will usually be part of the regular management review of the overall EnMS. 
+    \item It needs to be reviewed and updated regularly (e.g. annually) to ensure that it remains relevant. This review will usually be part of the regular management review of the overall EnMS.
+    \item[] Care must be taken that the policy is not just a symbol of management commitment without real commitment being in place to support it.
+\end{itemize}
+The policy statement needs to include reference to the following:\begin{itemize}
+    \item Commitment to continual improvement of energy performance through the development and
+    achievement of relevant objectives and targets.
+    \item Commitment to provide the necessary resources to achieve its energy objectives and targets.  
+    \item Commitment to develop the necessary measures to demonstrate performance improvement. 
+    \item Commitment to comply with all legal and other requirements that apply to its energy using activities. 
+    \item Support for the purchase of energy efficient products and services where economically feasible.
+    \item[] The policy needs to be signed by top management to demonstrate its commitment to the EnMS. 
+    \item[] Many organizations may decide to integrate the energy policy into their environmental policy. This can be a good idea as there are often significant overlaps. The policy must still include all the elements described in this section to be effective.
+\end{itemize}
+\subsection{Define the energy policy in terms of:}
+\begin{itemize}
+    \item Cost management 
+    \item Environmental management 
+    \item Security of supply 
+    \item Legal obligations and other regulation 
+    \item Technology \& innovation 
+    \item PR \& communication
+\end{itemize}
+\subsection{ENergy policy of an organization - Energy strategy pillars:}
+\begin{itemize}
+    \item Energy efficiency:\begin{itemize}
+        \item Energy review (audit)
+        \item Technology (energy prestaties van technology)
+        \item Monitoring \& targeting (hoe volg ik de energy prestaties op)
+        \item Operational control (alles wat te maken heeft met de human factor)
+    \end{itemize}
+    \item Sourcing:\begin{itemize}
+        \item Onsite generation (zelf uw energie opwekken)
+        \item Energy sharing/ energy communities (met buren energy opwekking doen)
+        \item off-site generation (niet bij u genereren)
+        \item Network power, gas, heat
+        \item Other fuels 
+        \item Certificats: EUA, GOO, GSC/WKC
+    \end{itemize} 
+    \item GHG emissions:\begin{itemize}
+        \item Energy related emissions (scope 1 \& 2)
+        \item Energy for mobility 
+        \item Green washing 
+        \item EU-ETS 
+        \item Electrification
+    \end{itemize}
+    \item Flexibility:\begin{itemize}
+        \item Behind the meter flex (op de site zelf zien wat je kan doen)
+        \item Front of the meter flex (bvb als je batterij systeem hebt aggregeren aan ander die dat kan gebruiken)
+        \item Energy storage
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item GHG Green House Gas(es)
+    \item EUA European (emission) Allowance(s)
+    \item GSC Groene Energie Certificaten
+    \item WKC Warmte Kracht Koppeling Certificaten
+\end{itemize}
+\subsection{Energy strategy: Planning phase in the energy management system:}
+An energy strategy refers to the PLAN that a company makes
+to implement its energy policy.
+The actions and decisions re. energy need to be imbedded in
+an Energy Management System:\begin{itemize}
+    \item Cf : Ad Hoc actions \& decisions vs. a Systematic
+    approach
+    \item Management system: set of interrelated or interacting elements of an
+    organization to establish policies and objectives and
+    processes to achieve those objectives
+    \item Energy management system (EnMS): management system to establish an energy policy,
+    objectives, energy targets, action plans and process(es) to
+    achieve the objectives and energy targets
+\end{itemize}
+Energy performance indicators zijn het klein broertje van de KPI's (is voornamelijk gefocused op continu verbeteren van energy prestaties)
+\subsection{Het doel: energy performance:}
+verschil energie gebruik en energie verbruik is het verlies.
+energie gebruik is uw nuttig bruikbaar energie en energie verbruik is uw totaal verbruikte energie.
+\begin{itemize}
+    \item[]Wat zijn goeie energie prestaties?\begin{itemize}
+        \item Not use more energy than strictly required
+        \item Shift towards renewable energy sources
+        \item Produce goods at lowest energy cost
+    \end{itemize}
+    \item[] Hoe krijg je goeie energie energie prestaties?\begin{itemize}
+        \item technology:\begin{itemize}
+            \item innovatie:\begin{itemize}
+                \item Process improvements 
+                \item Best available technology 
+                \item Renewable energy sources
+                \item Onsite generation
+                \item Upgrades \& retrofits
+            \end{itemize}
+            \item Energy improvement measures:\begin{itemize}
+                \item Add-ons, Replace and Maintain 
+                \item Compressors with VSD
+                \item Insulation 
+                \item Heat recovery
+                \item \dots
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    \item Operational control:\begin{itemize}
+        \item Settings of machines 
+        \item Process controls
+        \item Planning
+        \item Losses detection
+    \end{itemize}
+    \item Monitoring
+\end{itemize}
+\subsubsection{Why is monitoring important?}
+Is belangrijk om uw werken verder te kunnen zetten in de tijd
+\begin{itemize}
+    \item To be aware of energy performance 
+    \item Show the effect of investments in new technology,
+    retrofits, upgrades..
+    \item Demonstrate the effect of EIMs, maintenance and repairs 
+    \item To keep energy use under control (no losses)
+\end{itemize}
+\subsubsection{Hoe maak je uw energie prestatie meetbaar?:}
+Vergelijk de kost en verbruik met uw verwachte waarde.\begin{itemize}
+    \item Compare actual usage to ENERGY BASELINE
+    \item Track performance indicators (EnPI) in areas of SEU
+    MONITORING \& TARGETTING
+\end{itemize}
+\paragraph{Monitoring \& targeting (M \&T)}
+Monitoring and targeting is the foundation of energy management activities, allowing to:\begin{itemize}
+    \item Alert users timely to instances of exceptional consumption
+    of energy 
+    \item Identify new potential energy improvement measures
+    (EIM) 
+    \item Provide feedback for:\begin{itemize}
+        \item staff awareness 
+        \item budget setting 
+        \item benchmarking (compare performance against best
+        practice)
+    \end{itemize}
+\end{itemize}
+\section{Week 4:}
+het eerste domein is energy efficiency, het tweede domein is sourcing en het derde domein die nu redelijk aan het opkomen is is het ecologische aspect. (denk aan de scope's ) en als laatste domein flexibiliteit. 
+\subsection{Planning:}
+Je begint eerst met de vragen naar wat het verbruik is/kosten zijn aan de hand van de facturen,\dots Je zet dit dan in een excel etc. maand per maand. Dan kijken we naar waar de grote verbruikers zitten. Als we niet direct kunnen zien wat de grootste verbruiker is kijken we naar het vermogen van alle verbruikers en hoelang ze draaien per dag. 
+\section{Week 5:}
+Als je iets nieuws aankoopt/installeerd dan moet je dat direct betalen maar die terugverdientijd etc. kan anders zijn (IRR). Technische haalbaarheid is ook belangrijk voor de economische haalbaarheid.
+\subsection{Energy performance monitoring}
+Om efficient energie performantie bij te houden en te managen van de faciliteiten,systemen, processen en equipment moeten organisaties weten hoe/wat energie is en hoeveel er verbruikt wordt. Een (EnPI) is een waarde of maat dat resultaten kwantificeerd gerelateerd aan energy efficientie, gebruik en consumptie in faciliteiten,systemen,processen en equipment.\\ \bigbreak 
+Organisaties gebruiken energy performantie indicatoren (EnPI's) als een maat voor hun eigen performantie.\\ De energie baseline (EnB) is een referentie dat characteriseerd en kwantificeerd een organisaties energie performantie tijdens een gespecifieerde tijds periode. De EnB laat organisaties toe om aanpassingen te zien in energie performantie tussen geselecteerde periodes.
+\\ \textbf{Kan op examen gevraagd worden:}
+2 hoofredenen waarom specifiek gebruik zelden een goeden reden is voor energie : als er geen productie is zal het verbruik 0 zijn (wat zelden voorkomt). En de 2de reden is omdat er ook andere variabelen kunnen meespelen in het productie volume. (bvb er kunnen weersfenomenen bepalend zijn).
+\end{document}
