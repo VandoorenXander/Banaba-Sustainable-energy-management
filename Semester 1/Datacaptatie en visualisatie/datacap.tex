@@ -1,0 +1,156 @@
+
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+
+\usepackage{microtype}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+
+\usepackage{matlab-prettifier}
+% % voor code syntax highlighting
+% \usepackage{minted}
+
+% beter font
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\renewcommand{\familydefault}{\sfdefault}
+\graphicspath{{imagessoft/}}
+\begin{document}
+\begin{titlepage}
+    \author{Xander Vandooren}
+    \title{Datacaptatie \& visualisatie}
+\end{titlepage}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Sessie 1:}
+\subsection{CSV files:}
+Comma separated values (CSV) is een text fike om tabellen data op te slaan, zoals spreadsheets of databases. alle data is afgezonderd via een comma.
+\subsubsection{Key characteristics:}
+\begin{itemize}
+    \item Structuur:\begin{itemize}
+        \item Each row of the file corresponds to a record.
+        \item Each column within the row is separated by a comma (,) by default.
+        \item The first row often contains headers that describe the columns.
+    \end{itemize}
+    \item File extension: The typical file extension is .csv    
+    \item Delimiter:Although commas are the default delimiter, other characters like tabs (\t), semicolons (;), or pipes (|) can be used in some variations of CSV files.
+    \item Plain text: CSV files are stored in plain text format, making them easy to create and read using basic text editors like Notepad or TextEdit.
+\end{itemize}
+\paragraph{Advantages and disadvantages:}
+\begin{itemize}
+    \item Advantages:\begin{itemize}
+        \item Simplicity: Easy to create, read, and parse.
+        \item Compatibility: Supported by most data processing tools.
+        \item Lightweight: Smaller in size compared to binary formats.
+    \end{itemize}
+    \item disadvantages:\begin{itemize}
+        \item No Formatting: Does not support rich formatting like bold text or colors.
+        \item Limited to Simple Data: Cannot handle complex data structures like nested or hierarchical data.
+    \end{itemize}
+\end{itemize}
+CSV files are commonly used for data exchange, importing/exporting data from databases, and performing data analysis.
+\section{Sessie 2:}
+Wat is docker?\begin{itemize}
+    \item Docker is a container runtime 
+    \item Containers zijn een technologie die bepaalde processen isoleert. Het is alsof er maar 1 bepaald proces op een cleane installatie draait.
+    \item Het verschil met een Virtuele Machine is dat een container de kernel van een operating systeem deelt.
+    \item Door deze Lightweight opzet kan je makkelijk verschillende containers draaien op 1 enkel OS.
+    \item Containers zijn sneller en efficient 
+    \item Docker is de default container runtime 
+    \item Docker is open source
+\end{itemize}
+Docker:
+\begin{itemize}
+    \item Was eerst ontwikkeld op Linux 
+    \item Vanaf 2016 op andere OS 
+    \item Op windows via Hyper-V 
+    \item in 2019 WSL2 (Windows Subsystem Linux)
+    \item In 2020 is docker wereldwijde keuze, omdat het alle implementaties verenigt in een CLI (Command line interface) en een Daemon. (background process)
+\end{itemize}
+Docker begrippen:\begin{itemize}
+    \item Docker engine $\rightarrow$ applicatie die je installeert op de host machine to build, run and manage de Docker containers.
+    \item Docker Daemon $\rightarrow$ Het werpaard van de Docker systeem, dit component luistert naar alle processen, verstuurt vragen en regelt alles tussen de images, containers en volumes.
+    \item Docker client $\rightarrow$ De user interface om met de Docker Daemon te communiceren via de REST API.
+    \item Docker image $\rightarrow$ een template, die bestaat uit een all-in-one package die nodig is om een container omgeving te kunnen maken.
+    \item Docker container $\rightarrow$ Een draaiende instantie van een Docker image.
+    \item Docker registry $\rightarrow$ catalog systeem voor het beheer van Docker images (lokaal of van een externe partijd of Docker Hub)
+    \item Container orchestration $\rightarrow$ tools om de containers te beheren, b.v. Kubernetes, Docker Swarm,... 
+\end{itemize}
+Docker architecture:
+\begin{itemize}
+    \item Advantages of using Containers:\begin{itemize}
+        \item Isolation 
+        \item Portability 
+        \item Multi-cloud platform support 
+        \item Version control 
+        \item Scalability and management 
+        \item Easier Development 
+        \item Easy and rapid development 
+        \item Consistency $\rightarrow$ It always Works, everywhere
+    \end{itemize}
+\end{itemize}
+Docker build,Docker run,Docker volume
+\section{sessie 3:}
+\subsection{Timeseries database:}
+\begin{itemize}
+    \item handle time-related data:\begin{itemize}
+        \item Such as IoT 
+        \item Financial applications 
+        \item Industrial applications 
+    \end{itemize}
+    \item Time is primary axis 
+    \item These datasets primarily have 3 things in common:\begin{itemize}
+        \item The data that arrives is almost always recorded as a new entry $\rightarrow$ almost append only 
+        \item The data typically arrives in time order 
+        \item Time is a primary axis (time intervals can be either regular or irregular)
+    \end{itemize}
+    \item Data at scale\begin{itemize}
+        \item One flight $\rightarrow$ half a terabyte of data 
+        \item A connected car $\rightarrow$ 300 TB of data a year 
+    \end{itemize}
+    \item Throw data away?\begin{itemize}
+        \item Cars are subject to recalls, safety investigations, lawsuits, and much more 
+    \end{itemize}
+    \item Huge amount of timeseries data
+\end{itemize}
+\begin{itemize}
+    \item fast ingestion rate 
+    \item RD $\rightarrow$ reindex 
+    \item TSDB are built for client plurality 
+\end{itemize}
+\subsubsection{Specific concepts:}
+\begin{itemize}
+    \item Data retention $\rightarrow$ dropping data after certain time 
+    \item Bucket = database + retention policy 
+    \item Organization $\rightarrow$ workspace for users
+\end{itemize}
+\subsubsection{Query data with Flux (version >= 1.8)}
+Flux = functional datascripting. Not very similar to SQL $\rightarrow$ use graphical interface querybuilder $\rightarrow$ script editor
+\subsubsection{Influxdb elements:}\begin{itemize}
+    \item Tags are indexed 
+    \item Tags are additional information 
+    \item Fields are not indexed 
+    \item Fields are the value of the sensors
+\end{itemize}
+\subsubsection{InfluxDB 3.0 vs open source}
+3.0 is betaalde versie maar kan wel meer rows wegschrijven/ophalen.
+\subsubsection{Line protocol}
+Whitespace (spatie) in line protocol determines how influxDB interprets the data point. The first unescaped space delimits the measurement and the tag set from the field set. The second unescaped space delimits the field set from the timestamp.
+\begin{itemize}
+    \item Timestamp optional in nanoseconds 
+    \item Upload file to db
+\end{itemize}
+\end{document}
